@@ -354,7 +354,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('inquiry.store') }}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <input type="text" readonly class="form-control" name="product_name" value="{{ $agroDetail->product_name }}">
                             </div>
@@ -362,23 +363,28 @@
                                 <input type="text" readonly class="form-control" name="product_id" value="{{ $agroDetail->product_id }}">
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Email Address">
+                                <input type="email" class="form-control" name="inquiry_email" placeholder="Email Address">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Full Name">
+                                <input type="text" class="form-control" name="inquiry_fname" placeholder="Full Name">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Phone">
+                                <input type="text" class="form-control" name="inquiry_phone" placeholder="Phone">
+                            </div>
+                            <div class="md-3">
+                                <select name="inquiry_location" class="form-select mt-2 mb-2" aria-label="Default select example">
+                                    <option selected>Your Location</option>
+                                    <option value="ctg">CTG</option>
+                                    <option value="dhk">DHK</option>
+                                    <option value="kulna">Kulna</option>
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Your Location">
-                            </div>
-                            <div class="mb-3">
-                                <textarea type="text" class="form-control" placeholder="Your Message"></textarea>
+                                <textarea type="text" class="form-control" name="inquiry_message" placeholder="Your Message"></textarea>
                             </div>
 
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" name="video_status" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Pls check if you ant to talk </label>
                             </div>
 
@@ -431,7 +437,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('inquiry.store') }}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <input type="text" readonly class="form-control" name="product_name" value="{{ $dairyDetail->product_name }}">
                             </div>
@@ -439,28 +446,30 @@
                                 <input type="text" readonly class="form-control" name="product_id" value="{{ $dairyDetail->product_id }}">
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Email Address">
+                                <input type="email" class="form-control" name="inquiry_email" placeholder="Email Address">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Full Name">
+                                <input type="text" class="form-control" name="inquiry_fname" placeholder="Full Name">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Phone">
+                                <input type="text" class="form-control" name="inquiry_phone" placeholder="Phone">
+                            </div>
+                            <div class="md-3">
+                                <select name="inquiry_location" class="form-select mt-2 mb-2" aria-label="Default select example">
+                                    <option selected>Your Location</option>
+                                    <option value="ctg">CTG</option>
+                                    <option value="dhk">DHK</option>
+                                    <option value="kulna">Kulna</option>
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Your Location">
-                            </div>
-                            <div class="mb-3">
-                                <textarea type="text" class="form-control" placeholder="Your Message"></textarea>
+                                <textarea type="text" class="form-control" name="inquiry_message" placeholder="Your Message"></textarea>
                             </div>
 
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" name="video_status" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Pls check if you ant to talk </label>
                             </div>
-
-
-
 
                             <button type="submit" class="btn btn-sm btn-primary">Submit</button>
                         </form>
@@ -487,13 +496,14 @@
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <a href="./product-details.html" class="btn btn-sm btn-danger">Details</a>
-                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#productDetail_{{$dairyDetail->id}}">Add To Cart</button>
+                        <!-- <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#productDetail_{{$dairyDetail->id}}">Add To Cart</button> -->
+                        <button class="btn btn-sm btn-primary">Add To Cart</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="productDetail_{{$productDetail->id}}" tabindex="-1" aria-labelledby="productDetailLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="productDetail_{{$productDetail->id}}" tabindex="-1" aria-labelledby="productDetailLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -534,7 +544,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         @endforeach
 
     </div>

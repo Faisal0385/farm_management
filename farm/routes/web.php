@@ -3,15 +3,19 @@
 use App\Http\Controllers\AgroDetailsController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DairyDetailsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\ProductionController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\VaccineName;
 use App\Http\Controllers\VaccineNameController;
 use App\Models\AgroDetails;
+use App\Models\Inquiry;
 use App\Models\ProductDetails;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -34,13 +38,18 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/contact', function () {
-    return view('frontend.contact');
-})->name('contact');
+// Contact Us
+Route::get('/contact', [ContactController::class, 'contactShow'])->name('contact');
+Route::post('/contact/store', [ContactController::class, 'storeContact'])->name('contact.store');
 
-Route::get('/registration', function () {
-    return view('frontend.registration');
-})->name('registration');
+// Inquiry Form
+Route::post('/inquiry/store', [InquiryController::class, 'storeInquiry'])->name('inquiry.store');
+
+
+
+// Registration/Login Form
+Route::get('/registration', [RegisterController::class, 'registerShow'])->name('registration');
+Route::post('/register/store', [RegisterController::class, 'storeRegister'])->name('register.store');
 
 
 // Category Controller
@@ -103,7 +112,6 @@ Route::get('/dairy/delete/{id}', [DairyDetailsController::class, 'DeleteDairy'])
 
 Route::post('/dairy/store', [DairyDetailsController::class, 'StoreDairy'])->name('dairy.store');
 Route::post('/dairy/update/{id}', [DairyDetailsController::class, 'UpdateDairy'])->name('dairy.update');
-
 
 ## Frontend Dairy
 Route::get('/dairy', [DairyDetailsController::class, 'DairyAll'])->name('dairy');

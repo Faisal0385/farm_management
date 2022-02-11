@@ -13,25 +13,34 @@
 <div class="container">
     <div class="row pt-5">
         <div class="col-lg-6">
-            <form>
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+            <form action="{{ route('contact.store') }}" method="POST">
+                @csrf
+
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="" placeholder="Your Email">
+                    <input type="text" name="contact_name" class="form-control" placeholder="Full Name" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="" placeholder="Full Name">
+                    <input type="email" name="contact_email" class="form-control" placeholder="Your Email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="" placeholder="Phone Number">
+                    <input type="text" name="contact_number" class="form-control" placeholder="Phone Number" required>
                 </div>
                 <div class="md-3">
-                    <select class="form-select mt-2 mb-2" aria-label="Default select example">
-                        <option selected>Your Location</option>
+                    <select name="location" class="form-select mt-2 mb-2" aria-label="Default select example" required>
+                        <option selected readonly value="">Your Location</option>
                         <option value="ctg">CTG</option>
                         <option value="dhk">DHK</option>
+                        <option value="kulna">Kulna</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control" id="" placeholder="Your Message"></textarea>
+                    <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-danger btn-sm">Submit</button>

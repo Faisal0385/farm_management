@@ -12,12 +12,13 @@
 <div class="container">
     <div class="row pt-5">
         <div class="col-lg-6">
-            <form>
+            <form method="POST" action="">
+                @csrf
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="" placeholder="Your Email">
+                    <input type="email" class="form-control" name="user_email" placeholder="Your Email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="" placeholder="Your Password">
+                    <input type="password" class="form-control" name="user_pass" placeholder="Your Password" required>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-danger btn-sm">Login</button>
@@ -25,27 +26,42 @@
             </form>
         </div>
         <div class="col-lg-6">
-            <form>
+
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+            
+            @if(session('warn'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ session('warn') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
+
+            <form method="POST" action="{{ route('register.store') }}">
+                @csrf
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="" placeholder="User Name">
+                    <input type="text" class="form-control" name="user_name" placeholder="Full Name" required>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="" placeholder="Your Email">
+                    <input type="email" class="form-control" name="user_email" placeholder="Your Email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="" placeholder="Full Name">
+                    <input type="text" class="form-control" name="user_phone" placeholder="Phone Number" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="" placeholder="Phone Number">
-                </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control" id="" placeholder="Password">
+                    <input type="password" class="form-control" name="user_pass" placeholder="Password" required>
                 </div>
                 <div class="md-3">
-                    <select class="form-select mt-2 mb-2" aria-label="Default select example">
-                        <option selected>Your Location</option>
+                    <select name="user_location" class="form-select mt-2 mb-2" aria-label="Default select example" required>
+                        <option selected readonly value="">Your Location</option>
                         <option value="ctg">CTG</option>
                         <option value="dhk">DHK</option>
+                        <option value="kulna">Kulna</option>
                     </select>
                 </div>
                 <div class="mb-3">
