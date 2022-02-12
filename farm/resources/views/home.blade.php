@@ -3,7 +3,7 @@
 
 @section('content')
 
-<!-- Parallax start -->
+<!-- Silder start -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
@@ -61,228 +61,32 @@
         </div>
     </div>
 </div>
-<br><br>
+<!-- Silder end -->
+
 <!-- Categories start -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <div id="carouselExampleCaptions" class="carousel slide bg-dark p-5" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div class="row home__category d-flex justify-content-center">
+                @foreach($categories as $category)
+                <div class="col-lg-2">
+                    <a href="">
+                        <div class="card p-2">
+                            <div class="text-center">
+                                <img src="{{ asset($category->cat_img) }}" class="card-img-top image_cat" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text text-center">{{ $category->category_name }}</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Cow</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Buffalo</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Goat</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Sheep</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Others</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Sheep</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Cow</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Buffalo</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Goat</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Sheep</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Others</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Sheep</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Cow</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Buffalo</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Goat</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Sheep</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Others</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="card p-2">
-                                    <div class="text-center">
-                                        <img src="./assets/images/categories/cow_5.jpg" class="card-img-top image_cat" alt="...">
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">Sheep</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                @endforeach
             </div>
         </div>
     </div>
 </div>
 <!-- Categories start -->
-<br><br>
-<!-- Parallax end -->
-
-
 
 
 <!-- <div class="container-fluid">
@@ -314,7 +118,7 @@
 <br><br>
 <!-- Paragraph start -->
 <div class="container-fluid p-3">
-    <h1>Agro Details:</h1>
+    <h1 class="heading__text">Agro Details:</h1>
     <div class="row">
 
 
@@ -397,7 +201,7 @@
         @endforeach
 
     </div>
-    <h1>Dairy Details:</h1>
+    <h1 class="heading__text">Dairy Details:</h1>
     <div class="row">
 
 
@@ -481,14 +285,14 @@
 
     </div>
 
-    <h1>Dairy Products Details:</h1>
+    <h1 class="heading__text">Dairy Products Details:</h1>
     <div class="row">
 
 
         @foreach($productDetails as $productDetail)
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card m-1">
-                <img src="{{ asset($productDetail->product_img_1) }}" class="card-img-top" alt="{{ $productDetail->product_img_1 }}" height="200px">
+                <img src="{{($productDetail->product_img_1) ? asset($productDetail->product_img_1) : asset($productDetail->default_img) }}" class="card-img-top" alt="{{ $productDetail->product_img_1 }}" height="200px">
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $productDetail->product_name }} - {{ $productDetail->product_id }}</h5>
                     <p class="card-text"><strong>Price</strong> - {{ $productDetail->sale_price }} TK</p>

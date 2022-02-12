@@ -95,7 +95,6 @@ Route::get('/dairyProduct', [ProductDetailsController::class, 'ProductAll'])->na
 Route::get('/dairyProduct/details/{id}', [ProductDetailsController::class, 'ProductDetails'])->name('product.details');
 
 
-
 // Agro Controller
 Route::get('/agro/all', [AgroDetailsController::class, 'AllAgro'])->name('agro.all');
 Route::get('/agro/add', [AgroDetailsController::class, 'AllAdd'])->name('agro.add');

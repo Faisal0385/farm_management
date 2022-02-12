@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AgroDetails;
+use App\Models\Category;
 use App\Models\DairyDetail;
 use App\Models\ProductDetails;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class HomeController extends Controller
         $agroDetails    = AgroDetails::all();
         $dairyDetails   = DairyDetail::all();
         $productDetails = ProductDetails::all();
+        $categories     = Category::all();
 
-        return view('home',compact('agroDetails','dairyDetails','productDetails'));
+        return view('home',compact('agroDetails','dairyDetails','productDetails','categories'));
     }
 }
