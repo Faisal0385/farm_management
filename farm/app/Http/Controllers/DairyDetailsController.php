@@ -20,6 +20,14 @@ class DairyDetailsController extends Controller
         return view('frontend.dairy', compact('dairyDetails',));
     }
 
+    public function DairyDetails($id)
+    {
+        # code...        
+        $dairyDetails = DairyDetail::find($id);
+
+        return view('frontend.dairyDetails', compact('dairyDetails'));
+    }
+
 
 
     // Admin

@@ -29,7 +29,8 @@ class CreateDairyDetailsTable extends Migration
             $table->string('product_age');
             $table->string('location');            
             $table->string('category_id');
-            
+
+            $table->string('default_img');
             $table->string('product_img_1')->nullable();
             $table->string('product_img_2')->nullable();
             $table->string('product_img_3')->nullable();

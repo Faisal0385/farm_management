@@ -33,6 +33,7 @@ class CreateAgroDetailsTable extends Migration
             $table->text('product_detail_short')->nullable();
             $table->text('product_detail_long')->nullable();
             
+            $table->string('default_img');
             $table->string('product_img_1')->nullable();
             $table->string('product_img_2')->nullable();
             $table->string('product_img_3')->nullable();

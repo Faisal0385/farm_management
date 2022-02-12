@@ -37,7 +37,7 @@
                     </p>
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="./product-details.html" class="btn btn-sm btn-danger">Details</a>
+                        <a href="{{ route('agro.details', ['id' => $agroDetail->id ])}}" class="btn btn-sm btn-danger">Details</a>
                         <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Send Enquiry</button>
                     </div>
                 </div>

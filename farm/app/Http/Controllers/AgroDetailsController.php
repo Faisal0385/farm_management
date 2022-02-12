@@ -21,6 +21,14 @@ class AgroDetailsController extends Controller
         return view('frontend.agro', compact('agroDetails',));
     }
 
+    public function AgroDetails($id)
+    {
+        # code...        
+        $agroDetails = AgroDetails::find($id);
+
+        return view('frontend.agoraProductDetails', compact('agroDetails'));
+    }
+
 
     // Admin
 

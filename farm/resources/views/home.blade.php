@@ -338,7 +338,7 @@
                     </p>
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="./product-details.html" class="btn btn-sm btn-danger">Details</a>
+                        <a href="{{ route('agro.details', ['id' => $agroDetail->id ])}}" class="btn btn-sm btn-danger">Details</a>
                         <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#agroDetail_{{$agroDetail->id}}">Send Enquiry</button>
                     </div>
                 </div>
@@ -421,7 +421,7 @@
                     </p>
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="./product-details.html" class="btn btn-sm btn-danger">Details</a>
+                        <a href="{{ route('dairy.details', ['id' => $dairyDetail->id ])}}" class="btn btn-sm btn-danger">Details</a>
                         <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#dairyDetail_{{$dairyDetail->id}}">Send Enquiry</button>
                     </div>
                 </div>
@@ -488,63 +488,20 @@
         @foreach($productDetails as $productDetail)
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card m-1">
-                <img src="{{ asset($productDetail->product_img_1) }}" class="card-img-top" alt="{{ $productDetail->product_img_1 }}" height="350px">
+                <img src="{{ asset($productDetail->product_img_1) }}" class="card-img-top" alt="{{ $productDetail->product_img_1 }}" height="200px">
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $productDetail->product_name }} - {{ $productDetail->product_id }}</h5>
                     <p class="card-text"><strong>Price</strong> - {{ $productDetail->sale_price }} TK</p>
                     <p class="card-text"><strong>Discount Price</strong> - {{ $productDetail->sale_price }} TK</p>
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="./product-details.html" class="btn btn-sm btn-danger">Details</a>
+                        <a href="{{ route('product.details',['id' => $productDetail->id ]) }}" class="btn btn-sm btn-danger">Details</a>
                         <!-- <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#productDetail_{{$dairyDetail->id}}">Add To Cart</button> -->
                         <button class="btn btn-sm btn-primary">Add To Cart</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal -->
-        <!-- <div class="modal fade" id="productDetail_{{$productDetail->id}}" tabindex="-1" aria-labelledby="productDetailLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="productDetailLabel">Content Us</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <input type="text" readonly class="form-control" name="product_name" value="{{ $productDetail->product_name }}">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" readonly class="form-control" name="product_id" value="{{ $productDetail->product_id }}">
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Email Address">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Full Name">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Phone">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Your Location">
-                            </div>
-                            <div class="mb-3">
-                                <textarea type="text" class="form-control" placeholder="Your Message"></textarea>
-                            </div>
-
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Pls check if you ant to talk </label>
-                            </div>
-
-                            <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         @endforeach
 
     </div>

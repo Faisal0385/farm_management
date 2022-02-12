@@ -22,6 +22,14 @@ class ProductDetailsController extends Controller
         return view('frontend.dairyProduct', compact('productDetails',));
     }
 
+    public function ProductDetails($id)
+    {
+        # code...        
+        $productDetails = ProductDetails::find($id);
+
+        return view('frontend.dairyProductDetails', compact('productDetails'));
+    }
+
 
 
 

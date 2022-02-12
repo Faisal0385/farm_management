@@ -46,12 +46,14 @@ Route::post('/contact/store', [ContactController::class, 'storeContact'])->name(
 Route::post('/inquiry/store', [InquiryController::class, 'storeInquiry'])->name('inquiry.store');
 
 
-
 // Registration/Login Form
 Route::get('/registration', [RegisterController::class, 'registerShow'])->name('registration');
 Route::post('/register/store', [RegisterController::class, 'storeRegister'])->name('register.store');
 
 
+
+// BACKEND
+#########################################################################################################################
 // Category Controller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');
 Route::get('/category/edit/{id}', [CategoryController::class, 'EditCat'])->name('category.edit');
@@ -90,6 +92,9 @@ Route::post('/product/update/{id}', [ProductDetailsController::class, 'UpdatePro
 
 ## Frontend Product
 Route::get('/dairyProduct', [ProductDetailsController::class, 'ProductAll'])->name('dairyProduct');
+Route::get('/dairyProduct/details/{id}', [ProductDetailsController::class, 'ProductDetails'])->name('product.details');
+
+
 
 // Agro Controller
 Route::get('/agro/all', [AgroDetailsController::class, 'AllAgro'])->name('agro.all');
@@ -102,6 +107,7 @@ Route::post('/agro/update/{id}', [AgroDetailsController::class, 'UpdateAgro'])->
 
 ### Frontend Agro Controller
 Route::get('/agro', [AgroDetailsController::class, 'AgroAll'])->name('agro');
+Route::get('/agro/details/{id}', [AgroDetailsController::class, 'AgroDetails'])->name('agro.details');
 
 
 // Dairy Controller
@@ -115,6 +121,8 @@ Route::post('/dairy/update/{id}', [DairyDetailsController::class, 'UpdateDairy']
 
 ## Frontend Dairy
 Route::get('/dairy', [DairyDetailsController::class, 'DairyAll'])->name('dairy');
+Route::get('/dairy/details/{id}', [DairyDetailsController::class, 'DairyDetails'])->name('dairy.details');
+
 
 // Production Controller
 Route::get('/production/all', [ProductionController::class, 'AllProduction'])->name('production.all');
