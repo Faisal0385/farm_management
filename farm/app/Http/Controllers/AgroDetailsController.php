@@ -77,6 +77,8 @@ class AgroDetailsController extends Controller
         $productDetails->location             = $request->location;
 
         $productDetails->category_id          = "Agro";
+        $productDetails->default_img          = "/image/default/default-image.png";
+
 
         $productDetails->product_detail_short = $request->product_detail_short;
         $productDetails->product_detail_long  = $request->product_detail_long;

@@ -4,11 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Inquiry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InquiryController extends Controller
 {
     //
+    public function inquiryAll()
+    {
+        $contacts = Inquiry::latest()->paginate(5);
+        return view('admin.inquries.inquries_show', compact('contacts'));
+    }
 
+    public function inquiryDelete ($id)
+    {
+
+        DB::table('inquiries')->where('id','=', $id)->delete();
+
+        return Redirect()->route('inquiry.all')->with('success', 'Inquiries Deleted Successfully.');
+    }
     
     public function storeInquiry(Request $request)
     {

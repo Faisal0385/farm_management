@@ -15,20 +15,35 @@
 <br><br>
 <!-- Paragraph start -->
 <div class="container-fluid p-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-6">
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+        </div>
+    </div>
     <div class="row">
-
         @foreach($productDetails as $productDetail)
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card m-1">
                 <img src="{{ ($productDetail->product_img_1) ? asset($productDetail->product_img_1) : asset($productDetail->default_img) }}" class="card-img-top" alt="{{ $productDetail->product_img_1 }}" height="200px">
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $productDetail->product_name }} - {{ $productDetail->product_id }}</h5>
+
+                    @if($productDetail->discount_price != 'NA')
+                    <p class="card-text"><strong>Price</strong> - <del>{{ $productDetail->sale_price }} TK </del></p>
+                    @else
                     <p class="card-text"><strong>Price</strong> - {{ $productDetail->sale_price }} TK</p>
-                    <p class="card-text"><strong>Discount Price</strong> - {{ $productDetail->sale_price }} TK</p>
+                    @endif
+
+                    <p class="card-text"><strong>Discount Price</strong> - {{ $productDetail->discount_price }} TK</p>
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <a href="{{ route('product.details', ['id' => $productDetail->id ])}}" class="btn btn-sm btn-danger">Details</a>
-                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add To Cart</button>
+                        <a href="{{ route('cart.save', ['id' => $productDetail->id ])}}" class="btn btn-sm btn-primary">Add To Cart</a>
                     </div>
                 </div>
             </div>

@@ -21,16 +21,13 @@
                         <img src="{{ ($dairyDetails->product_img_1) ? asset($dairyDetails->product_img_1) : asset($dairyDetails->default_img) }}" class="d-block w-100" height="400px" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ ($dairyDetails->product_img_2) ? asset($dairyDetails->product_img_1) : asset($dairyDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
+                        <img src="{{ ($dairyDetails->product_img_2) ? asset($dairyDetails->product_img_2) : asset($dairyDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ ($dairyDetails->product_img_3) ? asset($dairyDetails->product_img_1) : asset($dairyDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
+                        <img src="{{ ($dairyDetails->product_img_3) ? asset($dairyDetails->product_img_3) : asset($dairyDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ ($dairyDetails->product_img_4) ? asset($dairyDetails->product_img_1) : asset($dairyDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ ($dairyDetails->product_img_5) ? asset($dairyDetails->product_img_1) : asset($dairyDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
+                        <img src="{{ ($dairyDetails->product_img_4) ? asset($dairyDetails->product_img_4) : asset($dairyDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

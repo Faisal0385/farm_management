@@ -19,7 +19,7 @@
         @foreach($dairyDetails as $dairyDetail)
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card m-1">
-                <img src="{{ asset('frontend/assets/images/products/cow_1.jpg') }}" class="card-img-top" alt="{{ $dairyDetail->product_img_1 }}" height="350px">
+                <img src="{{ ($dairyDetail->product_img_1) ? asset($dairyDetail->product_img_1) : asset($dairyDetail->default_img) }}" class="card-img-top" alt="{{ $dairyDetail->product_img_1 }}" height="200px">
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $dairyDetail->product_name }} - {{ $dairyDetail->product_id }}</h5>
                     <p class="card-text"><strong>Location</strong> - {{ $dairyDetail->location }}</p>

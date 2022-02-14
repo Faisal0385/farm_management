@@ -110,3 +110,7 @@
     margin: 5px;
     border-radius: 5px;
 }
+
+.accordion-button::after{
+    content: none !important;
+}

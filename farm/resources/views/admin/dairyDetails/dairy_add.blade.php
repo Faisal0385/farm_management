@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Add Cow's Details</h5>
-                            <form action="{{ route('dairy.store') }}" method="POST">
+                            <form action="{{ route('dairy.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="row">
@@ -104,6 +104,26 @@
                                             <input type="text" name="product_age" class="form-control">
                                         </div>
                                     </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">For Sale</label>
+                                            <select name="for_sale" class="form-select">
+                                                <option value="No">No</option>
+                                                <option value="Yes">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label for="" class="form-label">Choose Image 1:</label>
+                                <div class="mb-3">
+                                    <input type="file" name="product_image_1" class="form-control">
+                                </div>
+
+
+                                <label for="" class="form-label">Choose Image 2:</label>
+                                <div class="mb-3">
+                                    <input type="file" name="product_image_2" class="form-control">
                                 </div>
 
 

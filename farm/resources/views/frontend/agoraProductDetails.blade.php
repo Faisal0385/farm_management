@@ -29,9 +29,6 @@
                     <div class="carousel-item">
                         <img src="{{ ($agroDetails->product_img_4) ? asset($agroDetails->product_img_4) : asset($agroDetails->default_img) }}" class="d-block w-100" height="400px" alt="...">
                     </div>
-                    <div class="carousel-item">
-                        <img src="{{ ($agroDetails->product_img_5) ? asset($agroDetails->product_img_5) : asset($agroDetails->default_img) }}" class="d-block w-100" height="400px" alt="...">
-                    </div>agroDetails
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

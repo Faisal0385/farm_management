@@ -16,6 +16,7 @@ class CreateRegistersTable extends Migration
         Schema::create('registers', function (Blueprint $table) {
             $table->id();
 
+            $table->string('user_id')->unique();
             $table->string('user_name');
             $table->string('user_email');
             $table->string('user_phone');

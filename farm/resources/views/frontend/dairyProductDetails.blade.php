@@ -13,6 +13,16 @@
 <br><br>
 <!-- Paragraph start -->
 <div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-6">
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-7">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -29,9 +39,6 @@
                     <div class="carousel-item">
                         <img src="{{ ($productDetails->product_img_4) ? asset($productDetails->product_img_1) : asset($productDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
                     </div>
-                    <div class="carousel-item">
-                        <img src="{{ ($productDetails->product_img_5) ? asset($productDetails->product_img_1) : asset($productDetails->default_img)  }}" class="d-block w-100" height="400px" alt="...">
-                    </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,54 +54,20 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2>{{ $productDetails->product_name }} - {{ $productDetails->product_id }}</h2>
-                    <button class="btn btn-danger btn-sm">Enquiry</button>
+                    <a href="{{ route('cart.save', ['id' => $productDetails->id ])}}" class="btn btn-sm btn-danger">Add To Cart</a>
                 </div>
                 <div class="col-lg-12 pt-3 pb-3">
-                    <p><strong>Description:</strong> {{ $productDetails->product_detail_short }} </p>
+                    <p style="text-align: justify;"><strong>Description:</strong> {{ $productDetails->product_detail_short }} </p>
                     <p><strong>Weight:</strong> {{ $productDetails->weight }}</p>
                     <p><strong>Size:</strong> {{ $productDetails->size }}</p>
                     <p><strong>Original Price:</strong> {{ $productDetails->sale_price }} TK</p>
                     <p><strong>Discount Price:</strong> {{ $productDetails->discount_price }} TK</p>
-                    <p><strong>Details:</strong> {{ $productDetails->product_detail_long }} </p>
+                    <p style="text-align: justify;"><strong>Details:</strong> {{ $productDetails->product_detail_long }} </p>
                 </div>
-                <!-- <div class="col-lg-12">
-                    <p><strong>Social Media: </strong></p>
-
-                </div> -->
             </div>
         </div>
     </div>
 </div>
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Cow Videos
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/bCrz03-OJtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <div class="col-lg-4">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/moE9DuXELww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <div class="col-lg-4">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/moE9DuXELww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <hr>
 <!-- Paragraph start -->
 

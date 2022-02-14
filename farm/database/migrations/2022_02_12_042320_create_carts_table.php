@@ -22,7 +22,9 @@ class CreateCartsTable extends Migration
             $table->string('product_price');
             $table->string('product_image');
             $table->string('product_size')->nullable();
+            $table->string('product_weight')->nullable();
             $table->integer('product_qty');
+            $table->integer('total_price');
             $table->integer('user_status')->nullable();
 
             $table->timestamps();

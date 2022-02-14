@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -42,5 +43,20 @@ class ContactController extends Controller
 
 
         return Redirect()->back()->with('success', 'Contact Request Inserted Successfully.');
+    }
+
+    public function contactAll()
+    {
+        $contacts = Contact::latest()->paginate(5);
+        return view('admin.contact.contact_show', compact('contacts'));
+    }
+
+
+    public function contactDelete ($id)
+    {
+
+        DB::table('contacts')->where('id','=', $id)->delete();
+
+        return Redirect()->route('contact.all')->with('success', 'Contact Deleted Successfully.');
     }
 }

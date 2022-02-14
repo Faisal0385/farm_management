@@ -26,7 +26,7 @@
                     </div>
                     @endif
 
-                    <h4>All SubCategories:</h4>
+                    <h4>Agro List:</h4>
                     <table id="table_id" class="display" style="width:100%">
                         <thead>
                             <tr>
@@ -114,10 +114,6 @@
 
                         </tbody>
                     </table>
-
-
-
-
 
                     {{ $agroDetails->links() }}
                 </div>

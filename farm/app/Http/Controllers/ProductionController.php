@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 class ProductionController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function AllProduction()
     {
         $productDetails = Production::latest()->paginate(5);
@@ -39,8 +44,8 @@ class ProductionController extends Controller
         $production = new Production();
         $production->date           = $request->date;
         $production->cow_id         = $request->cow_id;
-        $production->morning_shift	= $request->morning_shift	;
-        $production->evening_shift	= $request->evening_shift	;
+        $production->morning_shift    = $request->morning_shift;
+        $production->evening_shift    = $request->evening_shift;
         $production->user_id        = Auth::user()->id;
         $production->save();
 
@@ -87,11 +92,8 @@ class ProductionController extends Controller
     public function DeleteProduction($id)
     {
 
-        DB::table('productions')->where('id','=', $id)->delete();
+        DB::table('productions')->where('id', '=', $id)->delete();
 
         return Redirect()->route('production.all')->with('success', 'Product Deleted Successfully.');
     }
-
-
-
 }

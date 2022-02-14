@@ -12,7 +12,15 @@
 <div class="container">
     <div class="row pt-5">
         <div class="col-lg-6">
-            <form method="POST" action="">
+
+            @if(session('warning_login'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{ session('warning_login') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-3">
                     <input type="email" class="form-control" name="user_email" placeholder="Your Email" required>
@@ -33,7 +41,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-            
+
             @if(session('warn'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>{{ session('warn') }}</strong>

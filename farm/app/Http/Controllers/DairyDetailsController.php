@@ -16,7 +16,7 @@ class DairyDetailsController extends Controller
 
     public function DairyAll()
     {
-        $dairyDetails = DairyDetail::all();
+        $dairyDetails = DairyDetail::where('for_sale', '=', 'Yes')->get();
         return view('frontend.dairy', compact('dairyDetails',));
     }
 
@@ -70,6 +70,8 @@ class DairyDetailsController extends Controller
         $productDetails->father_details       = $request->father_details;
         $productDetails->weight               = $request->weight;
         $productDetails->location             = $request->location;
+        $productDetails->for_sale             = $request->for_sale;
+        $productDetails->default_img          = "/image/default/default-image.png";
 
         $productDetails->cost_price           = $request->cost_price;
         $productDetails->sale_price           = $request->sale_price;
@@ -77,6 +79,35 @@ class DairyDetailsController extends Controller
         $productDetails->product_age          = $request->product_age;
 
         $productDetails->category_id          = "Dairy";
+
+
+        
+        ###########################################################################
+        $image_1     = $request->file('product_image_1');
+        $image_ext_1 = strtolower($image_1->getClientOriginalExtension());
+        $image_gen_1 = hexdec(uniqid());
+        $image_new_1 = $image_gen_1 . '.' . $image_ext_1;
+
+        $upload_to   = 'image/dairy/';
+        $image_new_db_1 = $upload_to . $image_new_1;
+        $image_1->move($upload_to, $image_new_1);
+
+        $productDetails->product_img_1 = $image_new_db_1;
+        ###########################################################################
+
+
+        ###########################################################################
+        $image_2     = $request->file('product_image_2');
+        $image_ext_2 = strtolower($image_2->getClientOriginalExtension());
+        $image_gen_2 = hexdec(uniqid());
+        $image_new_2 = $image_gen_2 . '.' . $image_ext_2;
+
+        $upload_to   = 'image/dairy/';
+        $image_new_db_2 = $upload_to . $image_new_2;
+        $image_2->move($upload_to, $image_new_2);
+
+        $productDetails->product_img_2 = $image_new_db_2;
+        ###########################################################################
 
         // $productDetails->product_img_1        = $request->product_img_1;
         // $productDetails->product_img_2        = $request->product_img_2;

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AgroDetailsController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DairyDetailsController;
@@ -42,13 +43,35 @@ Route::get('/about', function () {
 Route::get('/contact', [ContactController::class, 'contactShow'])->name('contact');
 Route::post('/contact/store', [ContactController::class, 'storeContact'])->name('contact.store');
 
+### Backend Admin
+Route::get('/contact/all', [ContactController::class, 'contactAll'])->name('contact.all');
+Route::get('/contact/delete/{id}', [ContactController::class, 'contactDelete'])->name('contact.delete');
+
+
+
 // Inquiry Form
 Route::post('/inquiry/store', [InquiryController::class, 'storeInquiry'])->name('inquiry.store');
+
+## Backend Admin -
+Route::get('/inquiry/all', [InquiryController::class, 'inquiryAll'])->name('inquiry.all');
+Route::get('/inquiry/delete/{id}', [InquiryController::class, 'inquiryDelete'])->name('inquiry.delete');
+
 
 
 // Registration/Login Form
 Route::get('/registration', [RegisterController::class, 'registerShow'])->name('registration');
 Route::post('/register/store', [RegisterController::class, 'storeRegister'])->name('register.store');
+
+Route::post('/customer/login',[RegisterController::class, 'userLogin'])->name('customer.login');
+Route::get('/customer/logout',[RegisterController::class, 'userlogout'])->name('customer.logout');
+
+
+Route::get('/cart', [CartController::class, 'cartAll'])->name('cart');
+Route::get('/cart/save/{id}', [CartController::class, 'cartSave'])->name('cart.save');
+Route::get('/cart/delete/{id}', [CartController::class, 'cartDelete'])->name('cart.delete');
+
+Route::post('/cart/store', [CartController::class, 'cartStore'])->name('cart.store');
+
 
 
 

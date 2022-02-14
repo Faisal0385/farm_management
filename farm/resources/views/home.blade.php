@@ -125,7 +125,7 @@
         @foreach($agroDetails as $agroDetail )
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card m-1">
-                <img src="{{ asset('frontend/assets/images/products/cow_1.jpg') }}" class="card-img-top" alt="{{ $agroDetail->product_img_1 }}" height="350px">
+                <img src="{{ ($agroDetail->product_img_1) ? asset($agroDetail->product_img_1) : asset($agroDetail->default_img) }}" class="card-img-top" alt="{{ $agroDetail->product_img_1 }}" height="200px">
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $agroDetail->product_name }} - {{ $agroDetail->product_id }}</h5>
                     <p class="card-text"><strong>Location</strong> - {{ $agroDetail->location }}</p>
@@ -208,7 +208,8 @@
         @foreach($dairyDetails as $dairyDetail)
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card m-1">
-                <img src="{{ asset('frontend/assets/images/products/cow_1.jpg') }}" class="card-img-top" alt="{{ $dairyDetail->product_img_1 }}" height="350px">
+                <!-- <img src="{{ asset('frontend/assets/images/products/cow_1.jpg') }}" class="card-img-top" alt="{{ $dairyDetail->product_img_1 }}" height="350px"> -->
+                <img src="{{ ($dairyDetail->product_img_1) ? asset($dairyDetail->product_img_1) : asset($dairyDetail->default_img) }}" class="card-img-top" alt="{{ $dairyDetail->product_img_1 }}" height="200px">
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $dairyDetail->product_name }} - {{ $dairyDetail->product_id }}</h5>
                     <p class="card-text"><strong>Location</strong> - {{ $dairyDetail->location }}</p>
@@ -216,7 +217,7 @@
                     <p class="card-text">
                     <div class="row">
                         <div class="col-lg-5">
-                            <strong>Age</strong> - {{ $dairyDetail->product_age }} year/years
+                            <strong>Age</strong> - {{ $dairyDetail->product_age }} year(s)
                         </div>
                         <div class="col-lg-7">
                             <strong>Milk Per Day</strong> - {{ $dairyDetail->milk_per_day }}
@@ -287,21 +288,31 @@
 
     <h1 class="heading__text">Dairy Products Details:</h1>
     <div class="row">
-
-
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         @foreach($productDetails as $productDetail)
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card m-1">
                 <img src="{{($productDetail->product_img_1) ? asset($productDetail->product_img_1) : asset($productDetail->default_img) }}" class="card-img-top" alt="{{ $productDetail->product_img_1 }}" height="200px">
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $productDetail->product_name }} - {{ $productDetail->product_id }}</h5>
+
+                    @if($productDetail->discount_price != 'NA')
+                    <p class="card-text"><strong>Price</strong> - <del>{{ $productDetail->sale_price }} TK </del></p>
+                    @else
                     <p class="card-text"><strong>Price</strong> - {{ $productDetail->sale_price }} TK</p>
-                    <p class="card-text"><strong>Discount Price</strong> - {{ $productDetail->sale_price }} TK</p>
+                    @endif
+
+                    <p class="card-text"><strong>Discount Price</strong> - {{ $productDetail->discount_price }} TK</p>
+
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <a href="{{ route('product.details',['id' => $productDetail->id ]) }}" class="btn btn-sm btn-danger">Details</a>
-                        <!-- <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#productDetail_{{$dairyDetail->id}}">Add To Cart</button> -->
-                        <button class="btn btn-sm btn-primary">Add To Cart</button>
+                        <a href="{{ route('cart.save', ['id' => $productDetail->id ])}}" class="btn btn-sm btn-primary">Add To Cart</a>
                     </div>
                 </div>
             </div>
@@ -311,9 +322,7 @@
     </div>
 </div>
 <hr>
-<div class="container-fluid">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.8570476020873!2d91.8229467142696!3d22.359025946412324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd91c97fb2bc5%3A0xac991a4f97e0ee7b!2sSIMCO%20MART!5e0!3m2!1sen!2sbd!4v1644585413474!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-</div>
+
 <!-- Paragraph start -->
 
 @endsection
