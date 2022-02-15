@@ -12,12 +12,12 @@ class DairyDetailsController extends Controller
 {
 
     // Frontend
-    
+
 
     public function DairyAll()
     {
         $dairyDetails = DairyDetail::where('for_sale', '=', 'Yes')->get();
-        return view('frontend.dairy', compact('dairyDetails',));
+        return view('frontend.dairy', compact('dairyDetails'));
     }
 
     public function DairyDetails($id)
@@ -81,7 +81,7 @@ class DairyDetailsController extends Controller
         $productDetails->category_id          = "Dairy";
 
 
-        
+
         ###########################################################################
         $image_1     = $request->file('product_image_1');
         $image_ext_1 = strtolower($image_1->getClientOriginalExtension());
@@ -95,7 +95,6 @@ class DairyDetailsController extends Controller
         $productDetails->product_img_1 = $image_new_db_1;
         ###########################################################################
 
-
         ###########################################################################
         $image_2     = $request->file('product_image_2');
         $image_ext_2 = strtolower($image_2->getClientOriginalExtension());
@@ -107,6 +106,32 @@ class DairyDetailsController extends Controller
         $image_2->move($upload_to, $image_new_2);
 
         $productDetails->product_img_2 = $image_new_db_2;
+        ###########################################################################
+
+        ###########################################################################
+        $image_3     = $request->file('product_image_3');
+        $image_ext_3 = strtolower($image_3->getClientOriginalExtension());
+        $image_gen_3 = hexdec(uniqid());
+        $image_new_3 = $image_gen_3 . '.' . $image_ext_3;
+
+        $upload_to   = 'image/product/';
+        $image_new_db_3 = $upload_to . $image_new_3;
+        $image_3->move($upload_to, $image_new_3);
+
+        $productDetails->product_img_3 = $image_new_db_3;
+        ###########################################################################
+
+        ###########################################################################
+        $image_4     = $request->file('product_image_4');
+        $image_ext_4 = strtolower($image_4->getClientOriginalExtension());
+        $image_gen_4 = hexdec(uniqid());
+        $image_new_4 = $image_gen_4 . '.' . $image_ext_4;
+
+        $upload_to   = 'image/product/';
+        $image_new_db_4 = $upload_to . $image_new_4;
+        $image_4->move($upload_to, $image_new_4);
+
+        $productDetails->product_img_4 = $image_new_db_4;
         ###########################################################################
 
         // $productDetails->product_img_1        = $request->product_img_1;

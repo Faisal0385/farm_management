@@ -19,6 +19,7 @@ class CreateFoodTable extends Migration
             $table->string('food_name');
             $table->string('time');
             $table->string('date');
+            $table->string('user_id');
             $table->string('total_amount');
 
             $table->timestamps();

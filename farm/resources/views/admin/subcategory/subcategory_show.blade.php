@@ -64,12 +64,12 @@
                                 </div>
 
                                 <div>
-                                    <label for="" class="form-label">SubCategory Name</label>
+                                    <label for="" class="form-label">Category Name</label>
                                     <select name="category_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option readonly value="" >Pls Select Subcategory</option>
+                                        <option readonly value="" >Pls Select Category</option>
 
                                         @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                        <option selected value="{{$category->id}}">{{$category->category_name}}</option>
                                         @endforeach
                                         
                                     </select>

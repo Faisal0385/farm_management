@@ -23,17 +23,9 @@
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $dairyDetail->product_name }} - {{ $dairyDetail->product_id }}</h5>
                     <p class="card-text"><strong>Location</strong> - {{ $dairyDetail->location }}</p>
-                    <p class="card-text"><strong>Price</strong> - {{ $dairyDetail->sale_price }} TK</p>
-                    <p class="card-text">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <strong>Age</strong> - {{ $dairyDetail->product_age }} year/years
-                        </div>
-                        <div class="col-lg-7">
-                            <strong>Milk Per Day</strong> - {{ $dairyDetail->milk_per_day }}
-                        </div>
-                    </div>
-                    </p>
+                    <p class="card-text"><strong>Price</strong> - {{ $dairyDetail->sale_price }} TK</p>                    
+                    <p class="card-text"><strong>Age</strong> - {{ $dairyDetail->product_age }} year(s)</p>
+                    <p class="card-text"><strong>Milk Per Day</strong> - {{ $dairyDetail->mother_production }} L</p>
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <a href="{{ route('dairy.details', ['id' => $dairyDetail->id ])}}" class="btn btn-sm btn-danger">Details</a>

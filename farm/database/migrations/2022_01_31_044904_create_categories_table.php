@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('category_name');
+            $table->string('category_url');
             $table->string('cat_img');
             $table->SoftDeletes();
             $table->timestamps();

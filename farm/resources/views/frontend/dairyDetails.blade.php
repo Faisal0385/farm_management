@@ -47,17 +47,16 @@
                     <button class="btn btn-danger btn-sm">Enquiry</button>
                 </div>
                 <div class="col-lg-12 pt-3 pb-3">
-                    <p><strong>Description:</strong> {{ $dairyDetails->product_detail_short }} </p>
-                    <p><strong>Breed Name:</strong> {{ $dairyDetails->product_breed }}</p>
+                    <!-- <p><strong>Description:</strong> {{ $dairyDetails->product_detail_short }} </p> -->
+                    <!-- <p><strong>Breed Name:</strong> {{ $dairyDetails->product_breed }}</p> -->
                     <p><strong>Price:</strong> {{ $dairyDetails->sale_price }} TK</p>
                     <p><strong>Age:</strong> {{ $dairyDetails->product_age }} year(s)</p>
                     <p><strong>Milk Per Day:</strong> {{ $dairyDetails->milk_per_day }} L</p>
-                    <p><strong>Details:</strong> {{ $dairyDetails->product_detail_long }} </p>
+                    <!-- <p><strong>Details:</strong> {{ $dairyDetails->product_detail_long }} </p> -->
                 </div>
                 <div class="col-lg-12">
                     <p><strong>Location: </strong> {{ $dairyDetails->location }}</p>
-                    <p><strong>Social Media: </strong></p>
-
+                    <!-- <p><strong>Social Media: </strong></p>-->
                 </div>
             </div>
         </div>

@@ -33,17 +33,17 @@
                         <tbody>
 
                             <!-- @php($i = 1) -->
-                            @foreach($productDetails as $productDetail)
+                            @foreach($foods as $food)
                             <tr>
-                                <th scope="row">{{ $productDetails->firstItem() + $loop->index }}</th>
-                                <td>{{ $productDetail->food_name }}</td>
-                                <td>{{ $productDetail->time }}</td>                               
-                                <td>{{ $productDetail->date }}</td>
-                                <td>{{ $productDetail->total_amount }}</td>
-                                <td>{{ $productDetail->created_at->diffForHumans() }}</td>
+                                <th scope="row">{{ $foods->firstItem() + $loop->index }}</th>
+                                <td>{{ $food->food_name }}</td>
+                                <td>{{ $food->time }}</td>                               
+                                <td>{{ $food->date }}</td>
+                                <td>{{ $food->total_amount }}</td>
+                                <td>{{ $food->created_at->diffForHumans() }}</td>
                                 <td>
-                                    <a href="{{ route('food.edit', ['id' => $productDetail->id ]) }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="{{ route('food.delete', ['id' => $productDetail->id ]) }}" onclick="return confirm('Are You Sure?')" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ route('food.edit', ['id' => $food->id ]) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('food.delete', ['id' => $food->id ]) }}" onclick="return confirm('Are You Sure?')" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -52,29 +52,29 @@
                         </tbody>
                     </table>
 
-                    {{ $productDetails->links() }}
+                    {{ $foods->links() }}
                 </div>
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Add Vaccine Details</h5>
+                            <h5 class="card-title">Add Food Details</h5>
                             <form action="{{ route('food.store') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="" class="form-label">Food Name</label>
-                                    <input type="date" name="food_name" class="form-control">
+                                    <input type="text" name="food_name" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">No. of Time</label>
-                                    <input type="date" name="time" class="form-control">
+                                    <input type="text" name="time" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Date</label>
-                                    <input type="date" name="date" class="form-control">
+                                    <input type="date" name="date" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Total Amount</label>
-                                    <input type="date" name="total_amount" class="form-control">
+                                    <input type="text" name="total_amount" class="form-control" required>
                                 </div>
                                                                
                                 <br>

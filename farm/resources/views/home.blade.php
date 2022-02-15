@@ -4,63 +4,63 @@
 @section('content')
 
 <!-- Silder start -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <!-- <div class="parallax">
+
+<div class="row">
+    <div class="col-lg-12">
+        <!-- <div class="parallax">
                 <div class="overlay_parallax d-flex justify-content-center align-items-center">
                     <h1 class="heading_text">Welcome To Our Farm</h1>
                 </div>
             </div> -->
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('frontend/assets/images/banners/cow_1.jpg') }}" height="600px" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('frontend/assets/images/banners/cow_2.jpeg') }}" height="600px" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('frontend/assets/images/banners/cow_3.png') }}" height="600px" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('frontend/assets/images/banners/cow_4.png') }}" height="600px" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('frontend/assets/images/banners/cow_1.jpg') }}" height="600px" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('frontend/assets/images/banners/cow_2.jpeg') }}" height="600px" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('frontend/assets/images/banners/cow_3.png') }}" height="600px" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('frontend/assets/images/banners/cow_4.png') }}" height="600px" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </div>
+
 <!-- Silder end -->
 
 <!-- Categories start -->
@@ -70,7 +70,7 @@
             <div class="row home__category d-flex justify-content-center">
                 @foreach($categories as $category)
                 <div class="col-lg-2">
-                    <a href="">
+                    <a href="{{ route($category->category_url) }}">
                         <div class="card p-2">
                             <div class="text-center">
                                 <img src="{{ asset($category->cat_img) }}" class="card-img-top image_cat" alt="...">
@@ -87,40 +87,11 @@
     </div>
 </div>
 <!-- Categories start -->
-
-
-<!-- <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="btn-group d-flex justify-content-end">
-                <div class="custom-select" style="width:200px;">
-                    <select>
-                        <option value="0">Search By Location:</option>
-                        <option value="1">Audi</option>
-                        <option value="2">BMW</option>
-                        <option value="3">Citroen</option>
-                        <option value="4">Ford</option>
-                        <option value="5">Honda</option>
-                        <option value="6">Jaguar</option>
-                        <option value="7">Land Rover</option>
-                        <option value="8">Mercedes</option>
-                        <option value="9">Mini</option>
-                        <option value="10">Nissan</option>
-                        <option value="11">Toyota</option>
-                        <option value="12">Volvo</option>
-                    </select>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div> -->
 <br><br>
 <!-- Paragraph start -->
 <div class="container-fluid p-3">
     <h1 class="heading__text">Agro Details:</h1>
     <div class="row">
-
 
         @foreach($agroDetails as $agroDetail )
         <div class="col-lg-3 col-md-4 col-sm-6">
@@ -204,7 +175,6 @@
     <h1 class="heading__text">Dairy Details:</h1>
     <div class="row">
 
-
         @foreach($dairyDetails as $dairyDetail)
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card m-1">
@@ -214,16 +184,8 @@
                     <h5 class="card-title" style="height: 50px;">{{ $dairyDetail->product_name }} - {{ $dairyDetail->product_id }}</h5>
                     <p class="card-text"><strong>Location</strong> - {{ $dairyDetail->location }}</p>
                     <p class="card-text"><strong>Price</strong> - {{ $dairyDetail->sale_price }} TK</p>
-                    <p class="card-text">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <strong>Age</strong> - {{ $dairyDetail->product_age }} year(s)
-                        </div>
-                        <div class="col-lg-7">
-                            <strong>Milk Per Day</strong> - {{ $dairyDetail->milk_per_day }}
-                        </div>
-                    </div>
-                    </p>
+                    <p class="card-text"><strong>Age</strong> - {{ $dairyDetail->product_age }} year(s)</p>
+                    <p class="card-text"><strong>Milk Per Day</strong> - {{ $dairyDetail->mother_production }} L</p>
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <a href="{{ route('dairy.details', ['id' => $dairyDetail->id ])}}" class="btn btn-sm btn-danger">Details</a>
@@ -288,6 +250,7 @@
 
     <h1 class="heading__text">Dairy Products Details:</h1>
     <div class="row">
+        
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session('success') }}</strong>

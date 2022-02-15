@@ -23,6 +23,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Category URL</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">User</th>
                                 <th scope="col">Created At</th>
@@ -36,6 +37,7 @@
                             <tr>
                                 <th scope="row">{{ $categories->firstItem() + $loop->index }}</th>
                                 <td>{{ $category->category_name }}</td>
+                                <td>{{ $category->category_url }}</td>
                                 <td><img src="{{ asset($category->cat_img) }}" width="50px" height="70px" /></td>
                                 <td>{{ $category->user->name }}</td>
                                 <td>{{ $category->created_at->diffForHumans() }}</td>
@@ -61,6 +63,10 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label">Category Name</label>
                                     <input type="text" name="category_name" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Category URL</label>
+                                    <input type="text" name="category_url" class="form-control">
                                 </div>
 
                                 <label for="" class="form-label">Choose Image:</label>

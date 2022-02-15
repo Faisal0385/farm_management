@@ -23,6 +23,7 @@ class CategoryController extends Controller
         return view('admin.category.category_show', compact('categories'));
     }
 
+
     public function StoreCat(Request $request)
     {
 
@@ -50,7 +51,8 @@ class CategoryController extends Controller
         $category_image->move($upload_to, $img_name);
 
         $category = new Category;
-        $category->category_name  = $request->category_name;
+        $category->category_name = $request->category_name;
+        $category->category_url  = $request->category_url;
         $category->cat_img = $category_img;
         $category->user_id = Auth::user()->id;
         $category->save();
@@ -61,7 +63,6 @@ class CategoryController extends Controller
 
     public function EditCat($id)
     {
-
         $categories = Category::find($id);
         return view('admin.category.category_edit', compact('categories'));
     }
@@ -70,38 +71,30 @@ class CategoryController extends Controller
     {
 
         $category_image = $request->file('category_image');
-        $old_image = $request->old_image;
+        $old_image      = $request->old_image;
 
         if ($category_image) {
 
-            $name_gen    = hexdec(uniqid());
-            $img_ext     = strtolower($category_image->getClientOriginalExtension());
-            $img_name    = $name_gen . '.' . $img_ext;
-            $upload_to   = 'image/category/';
+            $name_gen     = hexdec(uniqid());
+            $img_ext      = strtolower($category_image->getClientOriginalExtension());
+            $img_name     = $name_gen . '.' . $img_ext;
+            $upload_to    = 'image/category/';
             $category_img = $upload_to . $img_name;
             $category_image->move($upload_to, $img_name);
 
-
-            // Category::find($id)->update([
-            //     'category_name' => $request->category_name,
-            //     'cat_img'       => $cat_img,
-            //     'created_at'    => Carbon::now()
-            // ]);
-
             DB::table('categories')
                 ->where('id', $id)
-                ->update(['category_name' => $request->category_name, 'cat_img' => $category_img]);
+                ->update(['category_name' => $request->category_name, 'cat_img' => $category_img, 'category_url' => $request->category_url ]);
 
             unlink($old_image);
 
             return Redirect()->route('category.all')->with('success', 'Category Updated Successfully.');
+
         } else {
 
-            Category::find($id)->update([
-                'category_name'  => $request->category_name,
-                'user_id' => Auth::user()->id,
-                'created_at'  => Carbon::now()
-            ]);
+            DB::table('categories')
+                ->where('id', $id)
+                ->update(['category_name' => $request->category_name, 'category_url' => $request->category_url, 'user_id' => Auth::user()->id, 'created_at' => Carbon::now() ]);
 
             return Redirect()->route('category.all')->with('success', 'Category Updated Successfully.');
         }
@@ -109,12 +102,18 @@ class CategoryController extends Controller
 
     public function DeleteCat($id)
     {
-        $image = Category::find($id);
+        $image     = Category::find($id);
         $old_image = $image->cat_img;
         unlink($old_image);
 
         DB::table('categories')->where('id','=', $id)->delete();
 
         return Redirect()->route('category.all')->with('success', 'Category Deleted Successfully.');
+    }
+    
+    public function ViewCat($id)
+    {
+        $categories = Category::find($id);
+        return view('admin.category.category_view', compact('categories'));
     }
 }

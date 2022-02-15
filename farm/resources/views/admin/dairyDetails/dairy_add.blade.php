@@ -115,15 +115,26 @@
                                     </div>
                                 </div>
 
+                                <br>
+                                <br>
                                 <label for="" class="form-label">Choose Image 1:</label>
                                 <div class="mb-3">
-                                    <input type="file" name="product_image_1" class="form-control">
+                                    <input type="file" name="product_image_1" class="form-control" required>
                                 </div>
-
 
                                 <label for="" class="form-label">Choose Image 2:</label>
                                 <div class="mb-3">
-                                    <input type="file" name="product_image_2" class="form-control">
+                                    <input type="file" name="product_image_2" class="form-control" required>
+                                </div>
+
+                                <label for="" class="form-label">Choose Image 3:</label>
+                                <div class="mb-3">
+                                    <input type="file" name="product_image_3" class="form-control" required>
+                                </div>
+
+                                <label for="" class="form-label">Choose Image 4:</label>
+                                <div class="mb-3">
+                                    <input type="file" name="product_image_4" class="form-control" required>
                                 </div>
 
 

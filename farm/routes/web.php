@@ -48,15 +48,12 @@ Route::post('/contact/store', [ContactController::class, 'storeContact'])->name(
 Route::get('/contact/all', [ContactController::class, 'contactAll'])->name('contact.all');
 Route::get('/contact/delete/{id}', [ContactController::class, 'contactDelete'])->name('contact.delete');
 
-
 // Inquiry Form
 Route::post('/inquiry/store', [InquiryController::class, 'storeInquiry'])->name('inquiry.store');
 
 ## Backend Admin -
 Route::get('/inquiry/all', [InquiryController::class, 'inquiryAll'])->name('inquiry.all');
 Route::get('/inquiry/delete/{id}', [InquiryController::class, 'inquiryDelete'])->name('inquiry.delete');
-
-
 
 // Registration/Login Form
 Route::get('/registration', [RegisterController::class, 'registerShow'])->name('registration');
@@ -65,7 +62,7 @@ Route::post('/register/store', [RegisterController::class, 'storeRegister'])->na
 Route::post('/customer/login',[RegisterController::class, 'userLogin'])->name('customer.login');
 Route::get('/customer/logout',[RegisterController::class, 'userlogout'])->name('customer.logout');
 
-
+// Cart Form
 Route::get('/cart', [CartController::class, 'cartAll'])->name('cart');
 Route::get('/cart/save/{id}', [CartController::class, 'cartSave'])->name('cart.save');
 Route::get('/cart/delete/{id}', [CartController::class, 'cartDelete'])->name('cart.delete');
@@ -81,6 +78,12 @@ Route::post('/cart/store', [CartController::class, 'cartStore'])->name('cart.sto
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');
 Route::get('/category/edit/{id}', [CategoryController::class, 'EditCat'])->name('category.edit');
 Route::get('/category/delete/{id}', [CategoryController::class, 'DeleteCat'])->name('category.delete');
+
+
+###########################?????????????????????????????????????????????????????????????????????????????????????????????
+Route::get('/category/view/{id}', [CategoryController::class, 'ViewCat'])->name('category.view');
+###########################?????????????????????????????????????????????????????????????????????????????????????????????
+
 
 Route::post('/category/store', [CategoryController::class, 'StoreCat'])->name('category.store');
 Route::post('/category/update/{id}', [CategoryController::class, 'UpdateCat'])->name('category.update');

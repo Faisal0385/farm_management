@@ -40,7 +40,7 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
+                    <textarea class="form-control" name="message" rows="4" cols="50" placeholder="Your Message" required></textarea>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-danger btn-sm">Submit</button>
@@ -53,6 +53,8 @@
             <p>Phone : +880241355228 , +8801847422904</p>
         </div>
     </div>
+    <br>
+    <br>
 </div>
 
 @endsection

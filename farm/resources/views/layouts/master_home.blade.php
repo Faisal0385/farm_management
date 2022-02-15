@@ -10,18 +10,17 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Home - Farm</title>
 </head>
 
 <body>
   <!-- Navbar start -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
-                    <div class=" container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+  <div class="row">
+    <div class="col-lg-12">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ route('/') }}"><img src="{{ asset('frontend/assets/images/logo/logo.png') }}" alt="logo" height="80px"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -34,7 +33,6 @@
               <a class="nav-link" href="{{ route('dairyProduct') }}">Dairy Product</a>
               <a class="nav-link" href="{{ route('contact') }}">Contact us</a>
 
-
               @if(session()->has('user_id'))
               <a class="nav-link" href="{{ route('cart') }}">Cart</a>
               <a class="nav-link" href="{{ route('logout') }}">Logout</a>
@@ -42,13 +40,11 @@
               <a class="nav-link" href="{{ route('registration') }}">Registration/Login</a>
               @endif
 
-
             </div>
           </div>
-      </div>
+        </div>
       </nav>
     </div>
-  </div>
   </div>
   <!-- Navbar start -->
 
@@ -58,6 +54,57 @@
   <div class="container-fluid">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.8570476020873!2d91.8229467142696!3d22.359025946412324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd91c97fb2bc5%3A0xac991a4f97e0ee7b!2sSIMCO%20MART!5e0!3m2!1sen!2sbd!4v1644585413474!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </div>
+
+
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-5">
+          <h6>About</h6>
+          <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+          <h6>Categories</h6>
+          <ul class="footer-links">
+            <li><a href="{{ route('agro') }}">Agro</a></li>
+            <li><a href="{{ route('dairy') }}">Dairy</a></li>
+            <li><a href="{{ route('dairyProduct') }}">Dairy Product</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="http://scanfcode.com/about/">About Us</a></li>
+            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+            <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+            <a href="{{ route('/') }}">COWFARM</a>.
+          </p>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a class="insta" href="#"><i class="fa-brands fa-instagram-square"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Optional JavaScript; choose one of the two! -->
 

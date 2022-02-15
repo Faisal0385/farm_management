@@ -18,6 +18,10 @@
                                     <label for="" class="form-label">Update Category Name</label>
                                     <input type="text" value="{{$categories->category_name}}" name="category_name" class="form-control">
                                 </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Update Category URL</label>
+                                    <input type="text" value="{{$categories->category_url}}" name="category_url" class="form-control">
+                                </div>
                                 <label for="" class="form-label">Choose Image:</label>
                                 <div class="mb-3">
                                     <input type="file" name="category_image" class="form-control">

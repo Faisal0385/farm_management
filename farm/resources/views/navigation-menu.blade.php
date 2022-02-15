@@ -44,6 +44,9 @@
                     <x-jet-nav-link href="{{ route('vaccine.all') }}">
                         Vaccine Details
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('food.all') }}">
+                        Food Details
+                    </x-jet-nav-link>
                 </div>
             </div>
 
