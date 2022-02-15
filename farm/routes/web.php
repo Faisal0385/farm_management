@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DairyDetailsController;
+use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ProductDetailsController;
@@ -46,7 +47,6 @@ Route::post('/contact/store', [ContactController::class, 'storeContact'])->name(
 ### Backend Admin
 Route::get('/contact/all', [ContactController::class, 'contactAll'])->name('contact.all');
 Route::get('/contact/delete/{id}', [ContactController::class, 'contactDelete'])->name('contact.delete');
-
 
 
 // Inquiry Form
@@ -170,6 +170,16 @@ Route::get('/vaccineName/delete/{id}', [VaccineNameController::class, 'DeleteVac
 
 Route::post('/vaccineName/store', [VaccineNameController::class, 'StoreVaccineName'])->name('vaccineName.store');
 Route::post('/vaccineName/update/{id}', [VaccineNameController::class, 'UpdateVaccineName'])->name('vaccineName.update');
+
+// Food Name Controller
+Route::get('/foodName/all', [FoodController::class, 'AllFoodName'])->name('food.all');
+Route::get('/foodName/edit/{id}', [FoodController::class, 'EditFoodName'])->name('food.edit');
+Route::get('/foodName/delete/{id}', [FoodController::class, 'DeleteFoodName'])->name('food.delete');
+
+Route::post('/foodName/store', [FoodController::class, 'StoreFoodName'])->name('food.store');
+Route::post('/foodName/update/{id}', [FoodController::class, 'UpdateFoodName'])->name('food.update');
+
+
 
 
 
