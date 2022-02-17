@@ -178,6 +178,7 @@ class DairyDetailsController extends Controller
         $cost_price           = $request->cost_price;
         $sale_price           = $request->sale_price;
         $location             = $request->location;
+        $for_sale             = $request->for_sale;
 
         DB::table('dairy_details')
             ->where('id', $id)
@@ -194,6 +195,7 @@ class DairyDetailsController extends Controller
                 'cost_price'           => $cost_price,
                 'sale_price'           => $sale_price,
                 'location'             => $location,
+                'for_sale'             => $for_sale,
                 'user_id'              => Auth::user()->id,
                 'updated_at'           => Carbon::now()
             ]);

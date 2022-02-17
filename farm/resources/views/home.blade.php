@@ -250,7 +250,7 @@
 
     <h1 class="heading__text">Dairy Products Details:</h1>
     <div class="row">
-        
+
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session('success') }}</strong>
@@ -282,6 +282,38 @@
         </div>
         @endforeach
 
+    </div>
+</div>
+<hr>
+<div class="container">
+    <h1 class="heading__text">Virtual Tour To Our Farm:</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Cow Videos
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/bCrz03-OJtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="col-lg-4">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/moE9DuXELww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="col-lg-4">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/moE9DuXELww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <hr>

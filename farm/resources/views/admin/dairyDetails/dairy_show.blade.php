@@ -33,6 +33,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Product ID</th>
                                 <th scope="col">Product Name</th>
+                                <th scope="col">For Sale</th>
                                 <th scope="col">Birthday</th>
                                 <th scope="col">Mother ID</th>
                                 <th scope="col">Mother Production</th>
@@ -56,6 +57,7 @@
                                 <th scope="row">{{ $productDetails->firstItem() + $loop->index }}</th>
                                 <td>{{ $productDetail->product_id }}</td>
                                 <td>{{ $productDetail->product_name }}</td>
+                                <td>{{ $productDetail->for_sale }}</td>
                                 <td>{{ $productDetail->birthday }}</td>
                                 <td>{{ $productDetail->mother_id }}</td>
                                 <td>{{ $productDetail->mother_production }}</td>                                

@@ -125,16 +125,16 @@ class ProductDetailsController extends Controller
         ###########################################################################
 
         ###########################################################################
-        $image_4     = $request->file('product_image_4');
-        $image_ext_4 = strtolower($image_4->getClientOriginalExtension());
-        $image_gen_4 = hexdec(uniqid());
-        $image_new_4 = $image_gen_4 . '.' . $image_ext_4;
+        // $image_4     = $request->file('product_image_4');
+        // $image_ext_4 = strtolower($image_4->getClientOriginalExtension());
+        // $image_gen_4 = hexdec(uniqid());
+        // $image_new_4 = $image_gen_4 . '.' . $image_ext_4;
 
-        $upload_to   = 'image/product/';
-        $image_new_db_4 = $upload_to . $image_new_4;
-        $image_4->move($upload_to, $image_new_4);
+        // $upload_to   = 'image/product/';
+        // $image_new_db_4 = $upload_to . $image_new_4;
+        // $image_4->move($upload_to, $image_new_4);
 
-        $productDetails->product_img_4 = $image_new_db_4;
+        // $productDetails->product_img_4 = $image_new_db_4;
         ###########################################################################
 
 

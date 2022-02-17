@@ -35,7 +35,7 @@
 
               @if(session()->has('user_id'))
               <a class="nav-link" href="{{ route('cart') }}">Cart</a>
-              <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+              <a class="nav-link" href="{{ route('customer.logout') }}">Logout</a>
               @else
               <a class="nav-link" href="{{ route('registration') }}">Registration/Login</a>
               @endif

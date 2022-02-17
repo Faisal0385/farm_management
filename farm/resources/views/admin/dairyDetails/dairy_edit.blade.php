@@ -81,8 +81,9 @@
                                             <label for="" class="form-label">Age</label>
                                             <input type="text" value="{{ $productDetails->product_age }}" name="product_age" class="form-control">
                                         </div>
+
                                     </div>
-                                </div>                                
+                                </div>
 
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -99,16 +100,26 @@
                                     </div>
                                 </div>
 
-                                <div class="row">                                    
+                                <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Location</label>
                                             <input type="text" value="{{ $productDetails->location }}" name="location" class="form-control">
                                         </div>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">For Sale</label>
+                                            <select name="for_sale" class="form-select">
+                                                <option {{ $productDetails->for_sale == 'No' ? 'selected' : '' }} value="No">No</option>
+                                                <option {{ $productDetails->for_sale == 'Yes' ? 'selected' : '' }} value="Yes">Yes</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
 
-                         
+
                                 <br>
 
                                 <div>
