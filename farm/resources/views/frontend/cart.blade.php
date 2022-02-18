@@ -74,7 +74,7 @@
     <div class="col-lg-12">
       <h4 class="d-flex justify-content-end pt-5">Total: {{ $final_price }} TK</h5>
     </div>
-    
+
   </div>
 </div>
 
@@ -84,10 +84,11 @@
       @csrf
       <div class="row mb-3">
         <div class="col">
+          
           <input type="text" class="form-control" name="user_name" placeholder="Full Name" required>
-          <input type="hidden" class="form-control" name="user_id" value="{{ $allCarts == Null ? $allCart->user_id : '' }}">
+          <input type="hidden" class="form-control" name="user_id" value="{{ $isEmpty ? $allCart->user_id : '' }}">
           <input type="hidden" class="form-control" name="final_price" value="{{ $final_price }}">
-          <input type="hidden" class="form-control" name="user_list" value="{{  $allCarts == Null ? implode(',',$product_list) : '' ; }}">
+          <input type="hidden" class="form-control" name="user_list" value="{{  $isEmpty ? implode(',',$product_list) : '' ; }}">
         </div>
       </div>
       <div class="row mb-3">
@@ -132,7 +133,9 @@
           </select>
         </div>
       </div>
-      <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+
+
+      <button type="submit" class="btn btn-sm btn-primary" {{ $isEmpty == false ? "disabled" : "" }}>Submit</button>
     </form>
   </div>
 </div>
