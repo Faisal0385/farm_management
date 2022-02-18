@@ -13,8 +13,8 @@ class HomeController extends Controller
     //
     public function HomeView(){
 
-        $agroDetails    = AgroDetails::all();
-        $dairyDetails = DairyDetail::where('for_sale', '=', 'Yes')->get();
+        $agroDetails    = AgroDetails::limit(1)->all();
+        $dairyDetails   = DairyDetail::where('for_sale', '=', 'Yes')->get();
         $productDetails = ProductDetails::all();
         $categories     = Category::all();
 
