@@ -14,7 +14,13 @@
   </div>
   <div class="row">
 
+    @php
+    $product_list = [];
+    @endphp
     @foreach($allCarts as $allCart)
+    @php
+    array_push($product_list,$allCart->product_id );
+    @endphp
     <div class="col-lg-12 pt-4">
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
@@ -39,41 +45,10 @@
                   </div>
                   <div class="col-lg-1">
                     {{ $allCart->product_size }}
-                    <!-- @php
-                  if($allCart->product_size == 'NA'){
-                  @endphp
-                  <option name="NA">Size: NA</option>
-                  @php }else{ @endphp
-                  <select name="product_size" class="form-select form-select-sm">
-                    <option selected>Choose Size</option>
-                    @php
-                    $sizes = explode(",",$allCart->product_size);
-                    foreach($sizes as $size){
-                    @endphp
-                    <option id="{{$size}}">{{$size}}</option>
-                    @php } @endphp
-                  </select>
-                  @php } @endphp -->
                   </div>
 
                   <div class="col-lg-1">
                     {{ $allCart->product_weight }}
-
-                    <!-- @php
-                  if($allCart->product_weight == 'NA'){
-                  @endphp
-                  <option name="NA">Weight: NA</option>
-                  @php }else{ @endphp
-                  <select name="product_weight" class="form-select form-select-sm">
-                    <option selected>Choose Weight</option>
-                    @php
-                    $weights = explode(",",$allCart->product_weight);
-                    foreach($weights as $weight){
-                    @endphp
-                    <option id="{{$weight}}">{{$weight}}</option>
-                    @php } @endphp
-                  </select>
-                  @php } @endphp -->
                   </div>
                   <div class="col-lg-2">
                     <div class="input-group input-group-sm mb-3">
@@ -99,42 +74,49 @@
     <div class="col-lg-12">
       <h4 class="d-flex justify-content-end pt-5">Total: {{ $final_price }} TK</h5>
     </div>
+    
   </div>
 </div>
 
 <div class="row d-flex justify-content-end">
   <div class="col-lg-6 p-4">
-    <form>
+    <form action="{{ route('order.store') }}" method="POST">
+      @csrf
       <div class="row mb-3">
         <div class="col">
-          <input type="text" class="form-control" placeholder="First name" required>
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Last name" required>
+          <input type="text" class="form-control" name="user_name" placeholder="Full Name" required>
+          <input type="hidden" class="form-control" name="user_id" value="{{ $allCarts == Null ? $allCart->user_id : '' }}">
+          <input type="hidden" class="form-control" name="final_price" value="{{ $final_price }}">
+          <input type="hidden" class="form-control" name="user_list" value="{{  $allCarts == Null ? implode(',',$product_list) : '' ; }}">
         </div>
       </div>
       <div class="row mb-3">
         <div class="col">
-          <input type="email" class="form-control" placeholder="Email Address" required>
+          <input type="email" class="form-control" name="user_email" placeholder="Email Address" required>
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Phone Number" required>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Address 1" required>
+          <input type="text" class="form-control" name="user_number" placeholder="Phone Number" required>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Address 2">
+          <textarea class="form-control" name="address" placeholder="Address" required></textarea>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col">
-          <select class="form-select" aria-label="Default select example" required>
-            <option selected>Choose City</option>
+          <input type="text" class="form-control" name="street" placeholder="Street" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" name="pin_code" placeholder="Zip Code" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <select class="form-select" name="city" aria-label="Default select example" required>
+            <option selected readonly>Choose City</option>
             <option value="DHK">DHK</option>
             <option value="CTG">CTG</option>
             <option value="KULNA">KULNA</option>
@@ -143,8 +125,8 @@
       </div>
       <div class="row mb-3">
         <div class="col">
-          <select class="form-select" aria-label="Default select example" required>
-            <option selected>Choose Payment Method</option>
+          <select class="form-select" name="pyt_method" aria-label="Default select example" required>
+            <option selected readonly>Choose Payment Method</option>
             <option value="COD">COD</option>
             <option value="bkash">bkash</option>
           </select>

@@ -9,6 +9,7 @@ use App\Http\Controllers\DairyDetailsController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\RegisterController;
@@ -69,6 +70,12 @@ Route::get('/cart/delete/{id}', [CartController::class, 'cartDelete'])->name('ca
 
 Route::post('/cart/store', [CartController::class, 'cartStore'])->name('cart.store');
 
+// Order Form
+Route::get('/order', [OrderController::class, 'All'])->name('order');
+Route::get('/cart/save/{id}', [CartController::class, 'cartSave'])->name('cart.save');
+Route::get('/cart/delete/{id}', [CartController::class, 'cartDelete'])->name('cart.delete');
+
+Route::post('/order/store', [OrderController::class, 'orderStore'])->name('order.store');
 
 
 
