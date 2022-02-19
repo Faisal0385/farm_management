@@ -14,19 +14,24 @@ class CartController extends Controller
     //
     public function cartAll()
     {
+
+
+
         
         $count    = DB::table('carts')->where('user_id', session()->get('user_id'))->count();
         
         if($count){
+            $coupon_price = 0;
             $isEmpty = true;
             $allCarts    = DB::table('carts')->where('user_id', session()->get('user_id'))->get();
             $final_price = DB::table('carts')->where('user_id', session()->get('user_id'))->sum('total_price');
-            return view('frontend.cart', compact('allCarts', 'final_price', 'isEmpty'));
+            return view('frontend.cart', compact('allCarts', 'final_price', 'isEmpty','coupon_price'));
         }else{
+            $coupon_price = 0;
             $isEmpty = false;
             $allCarts    = DB::table('carts')->where('user_id', session()->get('user_id'))->get();
             $final_price = DB::table('carts')->where('user_id', session()->get('user_id'))->sum('total_price');
-            return view('frontend.cart', compact('allCarts', 'final_price', 'isEmpty'));
+            return view('frontend.cart', compact('allCarts', 'final_price', 'isEmpty','coupon_price'));
         }
     }
 

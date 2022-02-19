@@ -23,6 +23,7 @@ use App\Http\Controllers\VaccineNameController;
 use App\Models\AgroDetails;
 use App\Models\Inquiry;
 use App\Models\ProductDetails;
+use App\Models\Register;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +63,8 @@ Route::get('/inquiry/delete/{id}', [InquiryController::class, 'inquiryDelete'])-
 // Registration/Login Form
 Route::get('/registration', [RegisterController::class, 'registerShow'])->name('registration');
 Route::post('/register/store', [RegisterController::class, 'storeRegister'])->name('register.store');
+Route::post('/register/update', [RegisterController::class, 'updateRegister'])->name('register.update');
+Route::post('/password/update', [RegisterController::class, 'updatePassword'])->name('password.update');
 
 Route::post('/customer/login',[RegisterController::class, 'userLogin'])->name('customer.login');
 Route::get('/customer/logout',[RegisterController::class, 'userlogout'])->name('customer.logout');
@@ -218,6 +221,14 @@ Route::get('/coupon/details/delete/{id}', [CouponController::class, 'DeleteCoupo
 
 Route::post('/coupon/details/store', [CouponController::class, 'StoreCoupon'])->name('coupon.store');
 Route::post('/coupon/details/update/{id}', [CouponController::class, 'UpdateCoupon'])->name('coupon.update');
+
+
+/// Frontend
+Route::post('/coupon/apply/all', [CouponController::class, 'ApplyCoupon'])->name('coupon.apply');
+
+/// Frontend
+Route::get('/profile/all', [RegisterController::class, 'showProfile'])->name('profile.details');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Register;
+use Carbon\Carbon;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
@@ -83,6 +85,79 @@ class RegisterController extends Controller
         }
 
         return redirect('/');
+    }
+
+
+
+    public function showProfile()
+    {
+        # code...
+        if (session()->has('user_id')) {
+            $data = Register::where('user_id', session()->get('user_id'))->first();
+
+            return view('frontend.profile', compact('data'));
+        }else{
+            return view('frontend.registration');
+        }
+        
+    }
+
+    
+    public function updateRegister(Request $request)
+    {
+        if (session()->has('user_id')) {
+            $user_id       = $request->user_id;
+            $user_name     = $request->user_name;
+            $user_email    = $request->user_email;
+            $user_phone    = $request->user_phone;
+            $user_location = $request->user_location;
+            $user_status   = $request->user_status;
+    
+            DB::table('registers')
+                ->where('user_id', session()->get('user_id'))
+                ->update([
+                    'user_id'       => $user_id,
+                    'user_name'     => $user_name,
+                    'user_email'    => $user_email,
+                    'user_phone'    => $user_phone,
+                    'user_location' => $user_location,
+                    'user_status'   => $user_status,
+                    'updated_at'    => Carbon::now()
+                ]);
+    
+            return Redirect()->back()->with('success', 'Profile Details Updated Successfully.');
+        }else{
+            return view('frontend.registration');
+        }
+        
+    }
+
+    public function updatePassword(Request $request)
+    {
+        # code...
+        if (session()->has('user_id')) {
+            $old_pass = $request->old_pass;
+            $new_pass = $request->new_pass;
+
+            $checkPass = DB::table('registers')->where('user_pass', $old_pass)->count();
+            
+            if($checkPass > 0){
+
+                DB::table('registers')
+                ->where('user_id', session()->get('user_id'))
+                ->update([
+                    'user_pass'  => $new_pass,
+                    'updated_at' => Carbon::now()
+                ]);
+    
+                return Redirect()->back()->with('success_pass', 'Password Updated Successfully.');
+            }else{
+                return Redirect()->back()->with('success_warn', 'Old Password did not matched.');
+            }
+
+        }else{
+            return view('frontend.registration');
+        }
     }
 
 

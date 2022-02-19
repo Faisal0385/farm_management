@@ -17,13 +17,13 @@ class CreateCouponsTable extends Migration
             $table->id();
 
             $table->string('title');
-            $table->string('code');
-            $table->string('type');
+            $table->string('code')->unique();
+            $table->string('type')->nullable();
             $table->string('min_order_amt');
-            $table->string('is_one_time');
-            $table->string('status');
+            $table->string('discount_amt');
+            $table->string('status')->default(0);
             $table->string('user_status');
-            $table->string('user_id')->nullable();
+            $table->string('user_id')->default(0);
 
             $table->timestamps();
         });

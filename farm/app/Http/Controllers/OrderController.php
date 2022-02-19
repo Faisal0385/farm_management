@@ -17,9 +17,17 @@ class OrderController extends Controller
 
             $cartCheck = DB::table('carts')
                 ->where('user_id', '=', session()->get('user_id'))->count();
+            
+            
 
 
             if ($cartCheck > 0) {
+
+                if($request->coupon_price == 0){
+                    $total_price = $request->final_price;
+                }else{
+                    $total_price = $request->coupon_price;
+                }
 
                 $orderSave = new Order;
                 $orderSave->user_id        = session()->get('user_id');
@@ -34,7 +42,7 @@ class OrderController extends Controller
                 $orderSave->pin_code       = $request->pin_code;
                 $orderSave->street         = $request->street;
                 $orderSave->total_products = $request->user_list;
-                $orderSave->total_price    = $request->final_price;
+                $orderSave->total_price    = $total_price;
                 $done = $orderSave->save();
                 
                 if($done){

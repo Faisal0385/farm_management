@@ -30,7 +30,7 @@ class CreateProductDetailsTable extends Migration
             $table->text('product_detail_short')->nullable();
             $table->text('product_detail_long')->nullable();
                      
-            $table->string('user_status');                 
+            $table->string('user_status')->nullable();                 
 
             $table->string('default_img');
             $table->string('product_img_1')->nullable();

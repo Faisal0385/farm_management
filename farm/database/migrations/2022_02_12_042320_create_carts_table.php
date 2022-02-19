@@ -25,6 +25,7 @@ class CreateCartsTable extends Migration
             $table->string('product_weight')->nullable();
             $table->integer('product_qty');
             $table->integer('total_price');
+            $table->integer('coupon_price')->default(0);
             $table->integer('user_status')->nullable();
 
             $table->timestamps();

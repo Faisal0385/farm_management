@@ -74,9 +74,30 @@
     <div class="col-lg-12">
       <h4 class="d-flex justify-content-end pt-5">Total: {{ $final_price }} TK</h5>
     </div>
+    @if(session('coupon_price'))
+    <div class="col-lg-12">
+      <h4 class="d-flex justify-content-end pt-5">Discount Total: {{ session('coupon_price') }} TK</h5>
+    </div>
+    @endif
 
   </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <form action="{{ route('coupon.apply') }}" method="POST">
+        @csrf
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="coupon_code" placeholder="Coupon Code" required>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-info">Apply</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
 
 <div class="row d-flex justify-content-end">
   <div class="col-lg-6 p-4">
@@ -84,9 +105,10 @@
       @csrf
       <div class="row mb-3">
         <div class="col">
-          
+
           <input type="text" class="form-control" name="user_name" placeholder="Full Name" required>
           <input type="hidden" class="form-control" name="user_id" value="{{ $isEmpty ? $allCart->user_id : '' }}">
+          <input type="hidden" class="form-control" name="coupon_price" value="{{ session('coupon_price') }}">
           <input type="hidden" class="form-control" name="final_price" value="{{ $final_price }}">
           <input type="hidden" class="form-control" name="user_list" value="{{  $isEmpty ? implode(',',$product_list) : '' ; }}">
         </div>
@@ -139,6 +161,8 @@
     </form>
   </div>
 </div>
+
+
 
 
 <script>
