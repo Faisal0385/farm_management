@@ -5,7 +5,10 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DairyDetailsController;
+use App\Http\Controllers\ExpanseController;
+use App\Http\Controllers\ExpanseDetailsController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiryController;
@@ -72,10 +75,13 @@ Route::post('/cart/store', [CartController::class, 'cartStore'])->name('cart.sto
 
 // Order Form
 Route::get('/order', [OrderController::class, 'All'])->name('order');
+Route::get('/order/details', [OrderController::class, 'orderDetails'])->name('order.details');
+
 Route::get('/cart/save/{id}', [CartController::class, 'cartSave'])->name('cart.save');
 Route::get('/cart/delete/{id}', [CartController::class, 'cartDelete'])->name('cart.delete');
 
 Route::post('/order/store', [OrderController::class, 'orderStore'])->name('order.store');
+
 
 
 
@@ -189,9 +195,29 @@ Route::get('/foodName/delete/{id}', [FoodController::class, 'DeleteFoodName'])->
 Route::post('/foodName/store', [FoodController::class, 'StoreFoodName'])->name('food.store');
 Route::post('/foodName/update/{id}', [FoodController::class, 'UpdateFoodName'])->name('food.update');
 
+// Expanse Type Controller
+Route::get('/expanse/all', [ExpanseController::class, 'AllExpanse'])->name('expanse.all');
+Route::get('/expanse/edit/{id}', [ExpanseController::class, 'EditExpanse'])->name('expanse.edit');
+Route::get('/expanse/delete/{id}', [ExpanseController::class, 'DeleteExpanse'])->name('expanse.delete');
 
+Route::post('/expanse/store', [ExpanseController::class, 'StoreExpanse'])->name('expanse.store');
+Route::post('/expanse/update/{id}', [ExpanseController::class, 'UpdateExpanse'])->name('expanse.update');
 
+// Expanse Details Controller
+Route::get('/expanse/details/all', [ExpanseDetailsController::class, 'AllExpanse'])->name('expanseDetails.all');
+Route::get('/expanse/details/edit/{id}', [ExpanseDetailsController::class, 'EditExpanse'])->name('expanseDetails.edit');
+Route::get('/expanse/details/delete/{id}', [ExpanseDetailsController::class, 'DeleteExpanse'])->name('expanseDetails.delete');
 
+Route::post('/expanse/details/store', [ExpanseDetailsController::class, 'StoreExpanse'])->name('expanseDetails.store');
+Route::post('/expanse/details/update/{id}', [ExpanseDetailsController::class, 'UpdateExpanse'])->name('expanseDetails.update');
+
+// Coupon Controller
+Route::get('/coupon/details/all', [CouponController::class, 'AllCoupon'])->name('coupon.all');
+Route::get('/coupon/details/edit/{id}', [CouponController::class, 'EditCoupon'])->name('coupon.edit');
+Route::get('/coupon/details/delete/{id}', [CouponController::class, 'DeleteCoupon'])->name('coupon.delete');
+
+Route::post('/coupon/details/store', [CouponController::class, 'StoreCoupon'])->name('coupon.store');
+Route::post('/coupon/details/update/{id}', [CouponController::class, 'UpdateCoupon'])->name('coupon.update');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

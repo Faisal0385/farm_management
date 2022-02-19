@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DairyDetail;
 use App\Models\Vaccine;
 use App\Models\VaccineName;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,7 @@ class VaccineController extends Controller
         $productDetails = Vaccine::latest()->paginate(5);
         $dairyDetails   = DairyDetail::all();
         $VaccineNames   = VaccineName::all();
-        return view('admin.vaccine.vaccine_show', compact('productDetails', 'dairyDetails','VaccineNames'));
+        return view('admin.vaccine.vaccine_show', compact('productDetails', 'dairyDetails', 'VaccineNames'));
     }
 
     public function StoreVaccine(Request $request)
@@ -51,10 +52,42 @@ class VaccineController extends Controller
         return Redirect()->back()->with('success', 'Vaccine Details Inserted Successfully.');
     }
 
+    public function EditVaccine($id)
+    {
+
+        $productDetails = Vaccine::find($id);
+        $vaccineNames   = VaccineName::all();
+        $dairyDetails   = DairyDetail::all();
+
+        return view('admin.vaccine.vaccine_edit', compact('productDetails', 'dairyDetails','vaccineNames'));
+    }
+
+    public function UpdateVaccine(Request $request, $id)
+    {
+
+        $vaccine_date         = $request->vaccine_date;	
+        $cow_id               = $request->cow_id;	
+        $vaccine              = $request->vaccine;
+        $vaccine_notification = $request->vaccine_notification;
+
+        DB::table('vaccines')
+            ->where('id', $id)
+            ->update([
+                'vaccine_date'         => $vaccine_date,
+                'cow_id'               => $cow_id,
+                'vaccine'              => $vaccine,
+                'vaccine_notification' => $vaccine_notification,
+                'user_id'              => Auth::user()->id,
+                'updated_at'           => Carbon::now()
+            ]);
+
+        return Redirect()->route('vaccine.all')->with('success', 'Vaccine Details Name Updated Successfully.');
+    }
+
     public function DeleteVaccine($id)
     {
 
-        DB::table('vaccines')->where('id','=', $id)->delete();
+        DB::table('vaccines')->where('id', '=', $id)->delete();
 
         return Redirect()->route('vaccine.all')->with('success', 'Vaccine Details Deleted Successfully.');
     }

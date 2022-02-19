@@ -52,4 +52,22 @@ class OrderController extends Controller
             return redirect('/registration');
         }
     }
+
+    public function orderDetails()
+    {
+        # code...
+
+        if (session()->has('user_id')) {
+
+            $allCarts = DB::table('orders')
+                ->where('user_id', '=', session()->get('user_id'))->get();
+
+            return view('frontend.orderDetails', compact('allCarts'));
+
+        } else {
+            return redirect('/registration');
+        }
+
+
+    }
 }

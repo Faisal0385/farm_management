@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            All Sub Category
+            All Vaccine
         </h2>
     </x-slot>
 
@@ -11,28 +11,16 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Update Daily Production Details</h5>
-                            <form action="{{ route('production.update',['id' => $productDetails->id]) }}" method="POST">
+                            <h5 class="card-title">Update Vaccine Details</h5>
+                            <form action="{{ route('vaccine.update',['id' => $productDetails->id]) }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="" class="form-label">Date</label>
-                                    <input type="date" value="{{$productDetails->date}}" name="date" class="form-control">
+                                    <input type="date" value="{{$productDetails->vaccine_date}}" name="vaccine_date" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Cow ID</label>
-                                    <input type="text" value="{{$productDetails->cow_id}}" name="cow_id" class="form-control">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Morning Shift (liter)</label>
-                                    <input type="text" value="{{$productDetails->morning_shift}}" name="morning_shift" class="form-control">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Evening Shift (liter)</label>
-                                    <input type="text" value="{{$productDetails->evening_shift}}" name="evening_shift" class="form-control">
-                                </div>
-                                <div>
-                                    <label for="" class="form-label">Cow ID</label>
-                                    <select name="product_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <select name="cow_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                         <option readonly value="">Pls Select Cow ID</option>
 
                                         @foreach($dairyDetails as $dairyDetail)
@@ -46,6 +34,28 @@
 
                                     </select>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Vaccine</label>
+                                    <select name="vaccine" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option readonly value="">Pls Select Vaccine</option>
+
+                                        @foreach($vaccineNames as $vaccineName)
+                                        <option value="{{$vaccineName->id}}"
+                                            @if ($productDetails->vaccine == $vaccineName->id)
+                                            {{'selected="selected"'}}
+                                            @endif
+                                        
+                                        > {{ $vaccineName->vaccine_name }}
+                                        </option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Vaccine Notification Day</label>
+                                    <input type="text" value="{{$productDetails->vaccine_notification}}" name="vaccine_notification" class="form-control">
+                                </div>
+
                                 <br>
                                 <div>
                                     @error('category_name')

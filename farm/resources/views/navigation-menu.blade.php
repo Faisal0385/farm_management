@@ -187,6 +187,15 @@
                     <x-jet-nav-link href="{{ route('inquiry.all') }}">
                         Customer Inquiries
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('expanse.all') }}">
+                        Expanse Type
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('expanseDetails.all') }}">
+                        Expanse Details
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('coupon.all') }}">
+                        Coupon Generate
+                    </x-jet-nav-link>
 
                 </div>
             </div>
