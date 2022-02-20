@@ -196,6 +196,9 @@
                     <x-jet-nav-link href="{{ route('coupon.all') }}">
                         Coupon Generate
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('order.all') }}">
+                        Orders
+                    </x-jet-nav-link>
 
                 </div>
             </div>

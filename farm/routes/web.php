@@ -83,6 +83,9 @@ Route::get('/order/details', [OrderController::class, 'orderDetails'])->name('or
 Route::get('/cart/save/{id}', [CartController::class, 'cartSave'])->name('cart.save');
 Route::get('/cart/delete/{id}', [CartController::class, 'cartDelete'])->name('cart.delete');
 
+Route::get('/order/all', [OrderController::class, 'orderDetailsAll'])->name('order.all');
+
+
 Route::post('/order/store', [OrderController::class, 'orderStore'])->name('order.store');
 
 

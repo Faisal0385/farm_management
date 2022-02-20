@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
     //
+
+    public function orderDetailsAll()
+    {
+        # code...
+        $orders = Order::latest()->paginate(5);
+        
+        return view('admin.orders.order_show', compact('orders'));
+
+    }
+
+
     public function orderStore(Request $request)
     {
 
@@ -17,15 +28,13 @@ class OrderController extends Controller
 
             $cartCheck = DB::table('carts')
                 ->where('user_id', '=', session()->get('user_id'))->count();
-            
-            
 
 
             if ($cartCheck > 0) {
 
-                if($request->coupon_price == 0){
+                if ($request->coupon_price == 0) {
                     $total_price = $request->final_price;
-                }else{
+                } else {
                     $total_price = $request->coupon_price;
                 }
 
@@ -44,16 +53,15 @@ class OrderController extends Controller
                 $orderSave->total_products = $request->user_list;
                 $orderSave->total_price    = $total_price;
                 $done = $orderSave->save();
-                
-                if($done){
+
+                if ($done) {
                     DB::table('carts')->where('user_id', '=', session()->get('user_id'))->delete();
-                }else{
+                } else {
                     return Redirect()->back()->with('success', 'Something went wrong.');
                 }
 
                 return Redirect()->back()->with('success', 'Order Placed Successfully.');
-
-            }else{
+            } else {
                 return redirect('/registration');
             }
         } else {
@@ -67,15 +75,29 @@ class OrderController extends Controller
 
         if (session()->has('user_id')) {
 
-            $allCarts = DB::table('orders')
-                ->where('user_id', '=', session()->get('user_id'))->get();
+            $allCarts = DB::table('orders')->where('user_id', '=', session()->get('user_id'))->get();
 
-            return view('frontend.orderDetails', compact('allCarts'));
+            $data = [];
 
+            foreach ($allCarts as $allCart) {
+                $newProductCodes = explode(',', $allCart->total_products);
+
+                if (count($newProductCodes) > 1) {
+                    foreach ($newProductCodes as $newProductCode) {
+                        $productCodes = DB::table('product_details')->where('product_id', '=', $newProductCode)->get();
+                        // var_dump($allCart);
+                        array_push($data, $productCodes);
+                    }
+                } else {
+                    $productCodes = DB::table('product_details')->where('product_id', '=', $newProductCodes)->get();
+                    // var_dump($allCart);
+                    array_push($data, $productCodes);
+                }
+            }
+
+            return view('frontend.orderDetails', compact('allCarts', 'data'));
         } else {
             return redirect('/registration');
         }
-
-
     }
 }

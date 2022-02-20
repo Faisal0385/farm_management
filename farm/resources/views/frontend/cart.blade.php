@@ -19,7 +19,7 @@
     @endphp
     @foreach($allCarts as $allCart)
     @php
-    array_push($product_list,$allCart->product_id );
+      array_push($product_list, $allCart->product_id);
     @endphp
     <div class="col-lg-12 pt-4">
       <div class="accordion" id="accordionExample">
@@ -33,8 +33,8 @@
             <div class="accordion-body">
               <form action="{{ route('cart.store') }}" method="POST">
                 @csrf
-                <input type="hidden" name="product_id" value="{{ $allCart->product_id }}">
-                <input type="hidden" name="user_id" value="{{ $allCart->user_id }}">
+                <input type="hidden" name="product_id"    value="{{ $allCart->product_id }}">
+                <input type="hidden" name="user_id"       value="{{ $allCart->user_id }}">
                 <input type="hidden" name="product_price" value="{{ $allCart->product_price }}">
                 <div class="row">
                   <div class="col-lg-2">
@@ -162,20 +162,6 @@
   </div>
 </div>
 
-
-
-
-<script>
-  // function valueChange() {
-  //   var qty = document.getElementById('qty').value;
-  //   var sale_price = document.getElementById('sale_price').innerHTML;
-  //   var total = qty * sale_price;
-
-  //   document.getElementById('total_price').innerHTML = total;
-  //   console.log(total);
-
-  // }
-</script>
 
 
 @endsection
