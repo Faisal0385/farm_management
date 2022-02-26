@@ -16,6 +16,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\VaccineName;
@@ -231,6 +232,18 @@ Route::post('/coupon/apply/all', [CouponController::class, 'ApplyCoupon'])->name
 
 /// Frontend
 Route::get('/profile/all', [RegisterController::class, 'showProfile'])->name('profile.details');
+
+
+
+// Report Details Controller
+Route::get('/report/all', [ReportController::class, 'AllReport'])->name('report.all');
+
+
+
+
+
+
+
 
 
 

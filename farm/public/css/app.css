@@ -2152,3 +2152,10 @@ select {
   }
 }
 
+.active{
+  color: red;
+  text-decoration: none;
+}
+.active:hover{
+  color: rgb(213, 65, 65);
+}

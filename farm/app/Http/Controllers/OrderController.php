@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Register;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,9 +15,8 @@ class OrderController extends Controller
     {
         # code...
         $orders = Order::latest()->paginate(5);
-        
-        return view('admin.orders.order_show', compact('orders'));
 
+        return view('admin.orders.order_show', compact('orders'));
     }
 
 
@@ -55,7 +55,23 @@ class OrderController extends Controller
                 $done = $orderSave->save();
 
                 if ($done) {
-                    DB::table('carts')->where('user_id', '=', session()->get('user_id'))->delete();
+                    // DB::table('carts')->where('user_id', '=', session()->get('user_id'))->delete();
+
+                    $customer = DB::table('registers')->where('user_id', '=', session()->get('user_id'))->get();
+
+                    $points = (int) $customer[0]->user_status;
+
+                    if ($total_price >= 1000 && $total_price <= 2000) {
+                        $points = (int) $customer[0]->user_status + 100;
+                    } elseif ($total_price >= 2001 && $total_price <= 4000) {
+                        $points = (int) $customer[0]->user_status + 1000;
+                    } elseif ($total_price > 10000) {
+                        $points = (int) $customer[0]->user_status + 5000;
+                    }
+
+                    DB::table('registers')
+                        ->where('user_id', session()->get('user_id'))
+                        ->update(['user_status' => $points]);
                 } else {
                     return Redirect()->back()->with('success', 'Something went wrong.');
                 }

@@ -15,36 +15,36 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('category.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('category/all')) ? 'active' : '' }}" href="{{ route('category.all') }}">
                         All Categories
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('subcategory.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('subcategory/all')) ? 'active' : '' }}" href="{{ route('subcategory.all') }}">
                         All Sub Categories
                     </x-jet-nav-link>
                     <!-- <x-jet-nav-link href="{{ route('brand.all') }}" >
                         All Brands
                     </x-jet-nav-link> -->
-                    <x-jet-nav-link href="{{ route('agro.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('agro/all')) ? 'active' : '' }}" href="{{ route('agro.all') }}">
                         Agro Details
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dairy.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('dairy/all')) ? 'active' : '' }}" href="{{ route('dairy.all') }}">
                         Dairy Details
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('product.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('product/all')) ? 'active' : '' }}" href="{{ route('product.all') }}">
                         Dairy Product Details
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('production.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('production/all')) ? 'active' : '' }}" href="{{ route('production.all') }}">
                         Daily Milk Productions
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('vaccineName.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('vaccineName/all')) ? 'active' : '' }}" href="{{ route('vaccineName.all') }}">
                         All Vaccine
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('vaccine.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('vaccine/all')) ? 'active' : '' }}" href="{{ route('vaccine.all') }}">
                         Vaccine Details
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('food.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('foodName/all')) ? 'active' : '' }}" href="{{ route('food.all') }}">
                         Food Details
                     </x-jet-nav-link>
                 </div>
@@ -170,34 +170,30 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
-                <!-- <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
-                    </a>
-                </div> -->
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link>
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('contact.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('contact/all')) ? 'active' : '' }}" href="{{ route('contact.all') }}">
                         Customer Contacts
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('inquiry.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('inquiry/all')) ? 'active' : '' }}" href="{{ route('inquiry.all') }}">
                         Customer Inquiries
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('expanse.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('expanse/all')) ? 'active' : '' }}" href="{{ route('expanse.all') }}">
                         Expanse Type
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('expanseDetails.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('expanse/details/all')) ? 'active' : '' }}" href="{{ route('expanseDetails.all') }}">
                         Expanse Details
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('coupon.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('coupon/details/all')) ? 'active' : '' }}" href="{{ route('coupon.all') }}">
                         Coupon Generate
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('order.all') }}">
+                    <x-jet-nav-link class="{{ (request()->is('order/all')) ? 'active' : '' }}" href="{{ route('order.all') }}">
                         Orders
+                    </x-jet-nav-link>
+                    <x-jet-nav-link class="{{ (request()->is('report/all')) ? 'active' : '' }}" href="{{ route('report.all') }}">
+                        Report
                     </x-jet-nav-link>
 
                 </div>

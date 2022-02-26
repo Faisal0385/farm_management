@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 
 
 <x-app-layout>
@@ -21,7 +21,7 @@
                     @endif
 
                     <h4>Order List:</h4>
-                    <table id="table_id" class="display" style="width:100%">
+                    <table id="table_order" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -114,7 +114,7 @@
     <script>
         $(document).ready(function() {
 
-            $('#table_id').DataTable({
+            $('#table_order').DataTable({
                 "scrollX": true
             });
 

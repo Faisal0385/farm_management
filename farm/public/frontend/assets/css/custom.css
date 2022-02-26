@@ -280,3 +280,11 @@
     font-weight:600
   }
 }
+
+.active{
+  color: red !important;
+  text-decoration: none;
+}
+.active:hover{
+  color: rgb(213, 65, 65) !important;
+}
