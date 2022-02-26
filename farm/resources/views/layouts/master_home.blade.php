@@ -39,7 +39,7 @@
               <a class="nav-link {{ (request()->is('profile/all')) ? 'active' : '' }}" href="{{ route('profile.details') }}">Profile Details</a>
               <a class="nav-link" href="{{ route('customer.logout') }}">Logout</a>
               @else
-              <a class="nav-link {{ (request()->is('registration/all')) ? 'active' : '' }}" href="{{ route('registration') }}">Registration/Login</a>
+              <a class="nav-link {{ (request()->is('registration')) ? 'active' : '' }}" href="{{ route('registration') }}">Registration/Login</a>
               @endif
 
             </div>

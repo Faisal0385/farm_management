@@ -30,8 +30,8 @@
                                 <th scope="col">Product ID</th>
                                 <th scope="col">Contact Number</th>
                                 <th scope="col">Location</th>
-                                <th scope="col">Message</th>
                                 <th scope="col">Video</th>
+                                <th scope="col">Message</th>                                
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>

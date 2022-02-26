@@ -22,14 +22,14 @@ class OrderController extends Controller
 
     public function orderStore(Request $request)
     {
-
+        // check session user id
         if (session()->has('user_id')) {
 
-
+            // check user got anything in the cart
             $cartCheck = DB::table('carts')
                 ->where('user_id', '=', session()->get('user_id'))->count();
 
-
+            // if got anything
             if ($cartCheck > 0) {
 
                 if ($request->coupon_price == 0) {
@@ -38,6 +38,7 @@ class OrderController extends Controller
                     $total_price = $request->coupon_price;
                 }
 
+                // Save the order details in the order table
                 $orderSave = new Order;
                 $orderSave->user_id        = session()->get('user_id');
                 $orderSave->user_name      = $request->user_name;
@@ -55,23 +56,29 @@ class OrderController extends Controller
                 $done = $orderSave->save();
 
                 if ($done) {
-                    // DB::table('carts')->where('user_id', '=', session()->get('user_id'))->delete();
 
-                    $customer = DB::table('registers')->where('user_id', '=', session()->get('user_id'))->get();
+                    // bring the customer 
+                    $customer = DB::table('registers')->where('user_id', '=', session()->get('user_id'))->get(['user_status']);
 
                     $points = (int) $customer[0]->user_status;
 
-                    if ($total_price >= 1000 && $total_price <= 2000) {
+                    // check the total price
+                    if ($total_price >= 1000 && $total_price <= 3000) {
                         $points = (int) $customer[0]->user_status + 100;
-                    } elseif ($total_price >= 2001 && $total_price <= 4000) {
+                    } elseif ($total_price >= 3001 && $total_price <= 5000) {
                         $points = (int) $customer[0]->user_status + 1000;
                     } elseif ($total_price > 10000) {
                         $points = (int) $customer[0]->user_status + 5000;
                     }
-
+                    
+                    // update the points of the users
                     DB::table('registers')
                         ->where('user_id', session()->get('user_id'))
                         ->update(['user_status' => $points]);
+                    
+                    // delete items from cart
+                    DB::table('carts')->where('user_id', '=', session()->get('user_id'))->delete();
+
                 } else {
                     return Redirect()->back()->with('success', 'Something went wrong.');
                 }
