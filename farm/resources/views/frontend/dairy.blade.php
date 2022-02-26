@@ -75,7 +75,7 @@
 
                             <div class="mb-3 form-check">
                                 <input type="checkbox" name="video_status" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Pls check if you ant to talk </label>
+                                <label class="form-check-label" for="exampleCheck1">Pls check if you want to talk </label>
                             </div>
 
                             <button type="submit" class="btn btn-sm btn-primary">Submit</button>
