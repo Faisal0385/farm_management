@@ -46,6 +46,11 @@
                     <h2>{{ $dairyDetails->product_name }} - {{ $dairyDetails->product_id }}</h2>
                     <button class="btn btn-danger btn-sm">Enquiry</button>
                 </div>
+                <div class="col-lg-12" style="width: 100px; height:100px;">
+                    <a href="https://api.whatsapp.com/send?phone=+8801312361494" target="blank">
+                        <img class="img-thumbnail mt-2" src="{{ asset('frontend/assets/images/whatsapp.png') }}" width="60px" height="60px">
+                    </a> 
+                </div>
                 <div class="col-lg-12 pt-3 pb-3">
                     <!-- <p><strong>Description:</strong> {{ $dairyDetails->product_detail_short }} </p> -->
                     <!-- <p><strong>Breed Name:</strong> {{ $dairyDetails->product_breed }}</p> -->

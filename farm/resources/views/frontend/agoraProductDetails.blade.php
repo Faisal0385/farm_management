@@ -6,14 +6,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="text-center p-5">Agro Details</h2>
+            <h2 class="text-center pt-3">Agro Details</h2>
         </div>
     </div>
 </div>
 <br><br>
 <!-- Paragraph start -->
 <div class="container">
-    <div class="row pt-5 pb-5">
+    <div class="row pb-5">
         <div class="col-lg-7">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -47,7 +47,12 @@
                     <!-- <button class="btn btn-danger btn-sm">Enquiry</button> -->
                     <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#agroDetail_{{$agroDetails->id}}">Send Enquiry</button>
                 </div>
-                <div class="col-lg-12 pt-3 pb-3">
+                <div class="col-lg-12" style="width: 100px; height:100px;">
+                    <a href="https://api.whatsapp.com/send?phone=+8801312361494" target="blank">
+                        <img class="img-thumbnail mt-2" src="{{ asset('frontend/assets/images/whatsapp.png') }}" width="60px" height="60px">
+                    </a>
+                </div>
+                <div class="col-lg-12 pb-3">
                     <p style="text-align: justify;"><strong>Description:</strong> {{ $agroDetails->product_detail_short }} </p>
                     <p><strong>Breed Name:</strong> {{ $agroDetails->product_breed }}</p>
                     <p><strong>Price:</strong> {{ $agroDetails->sale_price }} TK</p>

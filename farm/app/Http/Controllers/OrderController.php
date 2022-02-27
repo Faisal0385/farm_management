@@ -53,6 +53,8 @@ class OrderController extends Controller
                 $orderSave->street         = $request->street;
                 $orderSave->total_products = $request->user_list;
                 $orderSave->total_price    = $total_price;
+                $orderSave->pty_number     = $request->pty_number;
+                $orderSave->trdx           = $request->trdx;
                 $done = $orderSave->save();
 
                 if ($done) {

@@ -111,7 +111,7 @@ class CouponController extends Controller
 
                 $user_status = DB::table('registers')->where('user_id', session()->get('user_id'))->get('user_status');
 
-                if ($coupons[0]->user_status >= $user_status[0]->user_status) {
+                if ($coupons[0]->user_status <= $user_status[0]->user_status) {
 
                     $final_price = DB::table('carts')->where('user_id', session()->get('user_id'))->sum('total_price');
 
@@ -122,7 +122,7 @@ class CouponController extends Controller
 
                     $upadtedData = DB::table('coupons')
                         ->where('code', '=', $coupon_code)
-                        ->update(['user_id' => session()->get('user_id')]);
+                        ->update(['user_id' => session()->get('user_id'), 'Status' => 1]);
 
                     if ($upadtedData > 0) {
                         return Redirect()->back()->with('coupon_price', $coupon_price);

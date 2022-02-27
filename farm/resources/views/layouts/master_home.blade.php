@@ -57,14 +57,13 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.8570476020873!2d91.8229467142696!3d22.359025946412324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd91c97fb2bc5%3A0xac991a4f97e0ee7b!2sSIMCO%20MART!5e0!3m2!1sen!2sbd!4v1644585413474!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </div>
 
-
   <!-- Site footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-5">
           <h6>About</h6>
-          <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+          <p style="text-align: justify;">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
         </div>
 
         <div class="col-xs-6 col-md-4">
@@ -107,7 +106,6 @@
       </div>
     </div>
   </footer>
-
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->

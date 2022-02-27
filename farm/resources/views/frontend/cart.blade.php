@@ -19,7 +19,7 @@
     @endphp
     @foreach($allCarts as $allCart)
     @php
-      array_push($product_list, $allCart->product_id);
+    array_push($product_list, $allCart->product_id);
     @endphp
     <div class="col-lg-12 pt-4">
       <div class="accordion" id="accordionExample">
@@ -33,8 +33,8 @@
             <div class="accordion-body">
               <form action="{{ route('cart.store') }}" method="POST">
                 @csrf
-                <input type="hidden" name="product_id"    value="{{ $allCart->product_id }}">
-                <input type="hidden" name="user_id"       value="{{ $allCart->user_id }}">
+                <input type="hidden" name="product_id" value="{{ $allCart->product_id }}">
+                <input type="hidden" name="user_id" value="{{ $allCart->user_id }}">
                 <input type="hidden" name="product_price" value="{{ $allCart->product_price }}">
                 <div class="row">
                   <div class="col-lg-2">
@@ -101,6 +101,21 @@
 
 <div class="row d-flex justify-content-end">
   <div class="col-lg-6 p-4">
+    <p>
+      <img src="{{ asset('frontend/assets/images/paymentmethod.png') }}" alt="" style="width: 500px; height: 100px; object-fit:cover">
+    </p>
+    <br>
+    <p style="text-align: justify;">
+      বিকাশঃ কোর্স ফি পাঠিয়ে দিন 01876397492 (বিকাশ পার্সোনাল) নম্বরে .ফিরতি SMS থেকে পাওয়া TrxID টি সংরক্ষন করুন, যেটি কোর্স রেজিঃ এর সময় প্রদান করবেন।
+
+      রকেটঃ কোর্স ফি পাঠিয়ে দিন 01774688159 (রকেট পার্সোনাল) নম্বরে .ফিরতি SMS থেকে পাওয়া TrxID টি সংরক্ষন করুন, যেটি কোর্স রেজিঃ এর সময় প্রদান করবেন।
+
+      ইউজার Account Active হয়ে যাওয়ার পরে কোর্স ফি ফেরত যোগ্য নয়। কোর্সের মান যাচাই করতে ফ্রি ক্লাস দেখুন। কোর্স প্লানের ভিডিও থেকে দেখে নিন, কি কি থাকছে।
+
+      আপনার যে কোনো জিজ্ঞাসা কিংবা সাহায্যের জন্যে কোর্স ম্যানেজারের সাথে কথা বলুন - সুমাইয়া খানম মোবাইল নং 01774688159 , অবশ্যই সকাল ১০ টা থেকে রাত ৮ টার মধ্যে।
+    </p>
+  </div>
+  <div class="col-lg-6 p-4">
     <form action="{{ route('order.store') }}" method="POST">
       @csrf
       <div class="row mb-3">
@@ -152,7 +167,19 @@
             <option selected readonly>Choose Payment Method</option>
             <option value="COD">COD</option>
             <option value="bkash">bkash</option>
+            <option value="Nogod">Nogod</option>
+            <option value="Roket">Roket</option>
           </select>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" name="pty_number" placeholder="Payment Number" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" name="trdx" placeholder="TRDX Number" required>
         </div>
       </div>
 

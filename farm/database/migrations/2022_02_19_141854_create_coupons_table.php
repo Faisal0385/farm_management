@@ -24,6 +24,8 @@ class CreateCouponsTable extends Migration
             $table->string('status')->default(0);
             $table->string('user_status');
             $table->string('user_id')->default(0);
+            $table->string('pty_number')->default(0);
+            $table->string('trdx')->default(0);
 
             $table->timestamps();
         });

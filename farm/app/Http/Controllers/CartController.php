@@ -14,10 +14,6 @@ class CartController extends Controller
     //
     public function cartAll()
     {
-
-
-
-        
         $count    = DB::table('carts')->where('user_id', session()->get('user_id'))->count();
         
         if($count){
@@ -88,7 +84,6 @@ class CartController extends Controller
 
     public function cartStore(Request $request)
     {
-
         $updateTotal = ($request->product_price * $request->qty);
 
         DB::table('carts')

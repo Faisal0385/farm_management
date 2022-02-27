@@ -27,9 +27,9 @@
                                 <th scope="col">#</th>
                                 <th scope="col">User ID</th>
                                 <th scope="col">User Name</th>
-                                <th scope="col">User Number</th>
-                                <th scope="col">City</th>
                                 <th scope="col">PYT Method</th>
+                                <th scope="col">Pty Number</th>
+                                <th scope="col">TRDXr</th>
                                 <th scope="col">Total Products</th>
                                 <th scope="col">Total Price</th>
                                 <th scope="col">Action</th>
@@ -43,15 +43,15 @@
                                 <th scope="row">{{ $orders->firstItem() + $loop->index }}</th>
                                 <td>{{ $order->user_id }}</td>
                                 <td>{{ $order->user_name }}</td>
-                                <td>{{ $order->user_number }}</td>
-                                <td>{{ $order->city }}</td>
                                 <td>{{ $order->pyt_method }}</td>
+                                <td>{{ $order->pty_number }}</td>
+                                <td>{{ $order->trdx }}</td>
                                 <td>{{ $order->total_products }}</td>
                                 <td>{{ $order->total_price }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$order->id}}">
-                                        More Details
+                                        More..
                                     </button>
 
                                     <!-- Modal -->
@@ -65,12 +65,20 @@
                                                     <table>
                                                         <tbody>
                                                             <tr>
+                                                                <td>User Number</td>
+                                                                <td>{{ $order->user_number }}</td>
+                                                            </tr>
+                                                            <tr>
                                                                 <td>Email</td>
                                                                 <td>{{ $order->user_email }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Message</td>
                                                                 <td>{{ $order->address }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>City</td>
+                                                                <td>{{ $order->city }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Pin Code</td>
