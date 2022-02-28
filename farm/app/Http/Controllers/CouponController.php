@@ -122,7 +122,7 @@ class CouponController extends Controller
 
                     $upadtedData = DB::table('coupons')
                         ->where('code', '=', $coupon_code)
-                        ->update(['user_id' => session()->get('user_id'), 'Status' => 1]);
+                        ->update(['user_id' => session()->get('user_id')]);
 
                     if ($upadtedData > 0) {
                         return Redirect()->back()->with('coupon_price', $coupon_price);

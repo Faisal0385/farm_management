@@ -47,7 +47,7 @@
                     <button class="btn btn-danger btn-sm">Enquiry</button>
                 </div>
                 <div class="col-lg-12" style="width: 100px; height:100px;">
-                    <a href="https://api.whatsapp.com/send?phone=+8801312361494" target="blank">
+                    <a href="https://api.whatsapp.com/send?phone=+8801306260913" target="blank">
                         <img class="img-thumbnail mt-2" src="{{ asset('frontend/assets/images/whatsapp.png') }}" width="60px" height="60px">
                     </a> 
                 </div>

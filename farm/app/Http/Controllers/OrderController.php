@@ -74,7 +74,7 @@ class OrderController extends Controller
                     }
                     
                     // update the points of the users
-                    DB::table('registers')
+                    $upadtedData = DB::table('registers')
                         ->where('user_id', session()->get('user_id'))
                         ->update(['user_status' => $points]);
                     
