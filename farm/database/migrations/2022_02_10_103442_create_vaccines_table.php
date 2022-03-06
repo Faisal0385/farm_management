@@ -21,6 +21,7 @@ class CreateVaccinesTable extends Migration
             $table->string('vaccine');
             $table->string('vaccine_date');
             $table->string('vaccine_notification');
+            $table->string('status');
 
             $table->timestamps();
         });

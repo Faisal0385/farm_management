@@ -180,11 +180,14 @@ Route::post('/production/update/{id}', [ProductionController::class, 'UpdateProd
 
 // Vaccine Controller
 Route::get('/vaccine/all', [VaccineController::class, 'AllVaccine'])->name('vaccine.all');
+Route::get('/vaccine/reminder', [VaccineController::class, 'ReminderVaccine'])->name('vaccine.reminder');
 Route::get('/vaccine/edit/{id}', [VaccineController::class, 'EditVaccine'])->name('vaccine.edit');
 Route::get('/vaccine/delete/{id}', [VaccineController::class, 'DeleteVaccine'])->name('vaccine.delete');
+Route::get('/vaccine/reminder/update/{id}', [VaccineController::class, 'UpdateVaccineReminder'])->name('vaccineReminder.update');
 
 Route::post('/vaccine/store', [VaccineController::class, 'StoreVaccine'])->name('vaccine.store');
 Route::post('/vaccine/update/{id}', [VaccineController::class, 'UpdateVaccine'])->name('vaccine.update');
+
 
 // Vaccine Name Controller
 Route::get('/vaccineName/all', [VaccineNameController::class, 'AllVaccineName'])->name('vaccineName.all');

@@ -6,9 +6,9 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-9">
 
                     @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -24,7 +24,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Vaccine Date</th>
                                 <th scope="col">Cow ID</th>
-                                <th scope="col">Vaccine</th>                                
+                                <th scope="col">Vaccine</th>
                                 <th scope="col">Vaccine Notification Days</th>
                                 <th scope="col">User</th>
                                 <th scope="col">Created At</th>
@@ -39,7 +39,7 @@
                                 <th scope="row">{{ $productDetails->firstItem() + $loop->index }}</th>
                                 <td>{{ $productDetail->vaccine_date }}</td>
                                 <td>{{ $productDetail->cow_id }}</td>
-                                <td>{{ $productDetail->vaccineName->vaccine_name }}</td>                                
+                                <td>{{ $productDetail->vaccineName->vaccine_name }}</td>
                                 <td>{{ $productDetail->vaccine_notification }}</td>
                                 <td>{{ $productDetail->user->name }}</td>
                                 <td>{{ $productDetail->created_at->diffForHumans() }}</td>
@@ -49,14 +49,11 @@
                                 </td>
                             </tr>
                             @endforeach
-
-
                         </tbody>
                     </table>
-
                     {{ $productDetails->links() }}
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Add Vaccine Details</h5>
@@ -69,31 +66,31 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label">Cow ID</label>
                                     <select name="cow_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option readonly value="" >Pls Select Cow ID</option>
+                                        <option readonly value="">Pls Select Cow ID</option>
 
                                         @foreach($dairyDetails as $dairyDetail)
                                         <option value="{{$dairyDetail->product_id}}">{{$dairyDetail->product_id}}</option>
                                         @endforeach
-                                        
+
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Vaccine</label>
                                     <select name="vaccine_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option readonly value="" >Pls Select Vaccine</option>
-                                        
+                                        <option readonly value="">Pls Select Vaccine</option>
+
                                         @foreach($VaccineNames as $VaccineName)
                                         <option value="{{$VaccineName->id}}">{{$VaccineName->vaccine_name}}</option>
                                         @endforeach
-                                        
+
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Vaccine Notification Day</label>
-                                    <input type="text" name="vaccine_notification" class="form-control">
+                                    <input type="date" name="vaccine_notification" class="form-control">
                                 </div>
 
-                                
+
                                 <br>
 
                                 <div>

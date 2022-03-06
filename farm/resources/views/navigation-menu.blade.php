@@ -1,3 +1,6 @@
+@php
+use App\Models\Vaccine;
+@endphp
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,13 +43,24 @@
                     <x-jet-nav-link class="{{ (request()->is('vaccineName/all')) ? 'active' : '' }}" href="{{ route('vaccineName.all') }}">
                         All Vaccine
                     </x-jet-nav-link>
-
                     <x-jet-nav-link class="{{ (request()->is('vaccine/all')) ? 'active' : '' }}" href="{{ route('vaccine.all') }}">
                         Vaccine Details
                     </x-jet-nav-link>
-                    <x-jet-nav-link class="{{ (request()->is('foodName/all')) ? 'active' : '' }}" href="{{ route('food.all') }}">
-                        Food Details
+                    <x-jet-nav-link class="{{ (request()->is('vaccine/reminder')) ? 'active' : '' }}" href="{{ route('vaccine.reminder') }}">
+                        <div class="position-relative">
+                            Vaccine Reminder
+                            @php
+                            $ldate = date('Y-m-d');
+                            $reminderCount = vaccine::where('vaccine_notification', $ldate)->where('status', null)->count();
+                            @endphp
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ $reminderCount }}
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+
+                        </div>
                     </x-jet-nav-link>
+
                 </div>
             </div>
 
@@ -172,7 +186,8 @@
             <div class="flex">
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link>
+                    <x-jet-nav-link class="{{ (request()->is('foodName/all')) ? 'active' : '' }}" href="{{ route('food.all') }}">
+                        Food Details
                     </x-jet-nav-link>
                     <x-jet-nav-link class="{{ (request()->is('contact/all')) ? 'active' : '' }}" href="{{ route('contact.all') }}">
                         Customer Contacts

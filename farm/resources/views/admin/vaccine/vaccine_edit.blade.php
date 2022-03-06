@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Vaccine Notification Day</label>
-                                    <input type="text" value="{{$productDetails->vaccine_notification}}" name="vaccine_notification" class="form-control">
+                                    <input type="date" value="{{$productDetails->vaccine_notification}}" name="vaccine_notification" class="form-control">
                                 </div>
 
                                 <br>
