@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2>{{ $productDetails->product_name }} - {{ $productDetails->product_id }}</h2>
-                    <a href="{{ route('cart.save', ['id' => $productDetails->id ])}}" class="btn btn-sm btn-danger">Add To Cart</a>
+                    <a href="{{ route('cart.save', ['id' => $productDetails->id ])}}" class="btn btn-sm btn-danger {{ !empty($productDetails->stock_qty) ? '' : 'disabled' }}" >Add To Cart</a> 
                 </div>
                 <div class="col-lg-12 pt-3 pb-3">
                     <p style="text-align: justify;"><strong>Short Description:</strong> {{ $productDetails->product_detail_short }} </p>
