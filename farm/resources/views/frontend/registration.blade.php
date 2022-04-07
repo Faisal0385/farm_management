@@ -26,7 +26,8 @@
                     <input type="email" class="form-control" name="user_email" placeholder="Your Email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" name="user_pass" placeholder="Your Password" required>
+                    <input type="password"  class="form-control" name="user_pass" placeholder="Your Password" required>
+                    
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-danger btn-sm">Login</button>
@@ -62,7 +63,8 @@
                     <input type="text" class="form-control" name="user_phone" placeholder="Phone Number" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" name="user_pass" placeholder="Password" required>
+                    <input type="password" class="form-control" id="txtPassword" onkeyup="CheckPasswordStrength(this.value)" name="user_pass" placeholder="Password" required>
+                    <b><span class="p-2" id="password_strength"></span></b>
                 </div>
                 <div class="md-3">
                     <select name="user_location" class="form-select mt-2 mb-2" aria-label="Default select example" required>
@@ -80,5 +82,67 @@
     </div>
 </div>
 <br><br>
+
+
+<script type="text/javascript">
+    function CheckPasswordStrength(password) {
+        var password_strength = document.getElementById("password_strength");
+
+        //TextBox left blank.
+        if (password.length == 0) {
+            password_strength.innerHTML = "";
+            return;
+        }
+
+        //Regular Expressions.
+        var regex = new Array();
+        regex.push("[A-Z]"); //Uppercase Alphabet.
+        regex.push("[a-z]"); //Lowercase Alphabet.
+        regex.push("[0-9]"); //Digit.
+        regex.push("[$@$!%*#?&]"); //Special Character.
+
+        var passed = 0;
+
+        //Validate for each Regular Expression.
+        for (var i = 0; i < regex.length; i++) {
+            if (new RegExp(regex[i]).test(password)) {
+                passed++;
+            }
+        }
+
+        //Validate for length of Password.
+        if (passed > 2 && password.length > 8) {
+            passed++;
+        }
+
+        //Display status.
+        var color = "";
+        var strength = "";
+        switch (passed) {
+            case 0:
+            case 1:
+                strength = "Weak";
+                color = "red";
+                break;
+            case 2:
+                strength = "Good";
+                color = "darkorange";
+                break;
+            case 3:
+            case 4:
+                strength = "Strong";
+                color = "green";
+                break;
+            case 5:
+                strength = "Very Strong";
+                color = "darkgreen";
+                break;
+        }
+        password_strength.innerHTML = strength;
+        password_strength.style.color = color;
+    }
+</script>
+
+
 
 @endsection
