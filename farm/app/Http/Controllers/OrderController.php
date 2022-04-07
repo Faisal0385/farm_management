@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\ProductDetails;
 use App\Models\Register;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -72,15 +73,40 @@ class OrderController extends Controller
                     } elseif ($total_price > 10000) {
                         $points = (int) $customer[0]->user_status + 5000;
                     }
-                    
+
                     // update the points of the users
-                    $upadtedData = DB::table('registers')
+                    DB::table('registers')
                         ->where('user_id', session()->get('user_id'))
                         ->update(['user_status' => $points]);
-                    
+                   
+                    // #####################################################################################
+                    $cartDetails = DB::table('carts')
+                        ->where('user_id', '=', session()->get('user_id'))->get();
+
+                    for ($i = 0; $i < count($cartDetails); $i++) {
+                        # code...
+                        $onumber = $cartDetails[$i]->product_qty;
+                        $cartDetails[$i]->product_id;
+
+
+                        $product_details = DB::table('product_details')
+                            ->where('product_id', $cartDetails[$i]->product_id)->get();
+                        
+                        if($onumber > $product_details[0]->stock_qty ){
+                            return Redirect()->back()->with('warning', 'Order Qty can not be more than '.$product_details[0]->stock_qty.'');
+                        }else{
+                            $uty = ($product_details[0]->stock_qty - $onumber);
+                            $product_id = $cartDetails[$i]->product_id;
+                            
+                            DB::table('product_details')
+                                ->where('product_id', $product_id)
+                                ->update(['stock_qty' => $uty]);
+                        }
+                        
+                    }
+
                     // delete items from cart
                     DB::table('carts')->where('user_id', '=', session()->get('user_id'))->delete();
-
                 } else {
                     return Redirect()->back()->with('success', 'Something went wrong.');
                 }

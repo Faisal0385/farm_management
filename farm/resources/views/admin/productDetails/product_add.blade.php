@@ -41,16 +41,28 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Weight/Liter</label>
                                             <input type="text" name="weight" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Size</label>
                                             <input type="text" name="size" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Stock Unit</label>
+                                            <input type="text" name="stock_qty" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Stock Alert</label>
+                                            <input type="text" name="stock_alert" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +96,7 @@
                                                 <option readonly value="">Pls Select Category</option>
 
                                                 @foreach($categories as $category)
-                                                <option selected value="{{$category->id}}">{{$category->category_name}}</option>
+                                                <option selected value="{{$category->id}}" selected>{{$category->category_name}}</option>
                                                 @endforeach
 
                                             </select>

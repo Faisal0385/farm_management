@@ -74,8 +74,10 @@ class ProductDetailsController extends Controller
         $productDetails->product_id           = $request->product_id;
         $productDetails->product_name         = $request->product_name;
         $productDetails->weight               = $request->weight;
-        $productDetails->size                 = $request->size;
         $productDetails->cost_price           = $request->cost_price;
+        $productDetails->size                 = $request->size;
+        $productDetails->stock_qty            = $request->stock_qty;
+        $productDetails->stock_alert          = $request->stock_alert;
         $productDetails->sale_price           = $request->sale_price;
         $productDetails->discount_price       = $request->discount_price;
         $productDetails->product_detail_short = $request->product_detail_short;

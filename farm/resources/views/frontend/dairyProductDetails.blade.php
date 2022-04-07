@@ -57,11 +57,12 @@
                     <a href="{{ route('cart.save', ['id' => $productDetails->id ])}}" class="btn btn-sm btn-danger">Add To Cart</a>
                 </div>
                 <div class="col-lg-12 pt-3 pb-3">
-                    <p style="text-align: justify;"><strong>Description:</strong> {{ $productDetails->product_detail_short }} </p>
+                    <p style="text-align: justify;"><strong>Short Description:</strong> {{ $productDetails->product_detail_short }} </p>
                     <p><strong>Weight:</strong> {{ $productDetails->weight }}</p>
                     <p><strong>Size:</strong> {{ $productDetails->size }}</p>
                     <p><strong>Original Price:</strong> {{ $productDetails->sale_price }} TK</p>
                     <p><strong>Discount Price:</strong> {{ $productDetails->discount_price }} TK</p>
+                    <p><strong>Stock Qty:</strong> {{ $productDetails->stock_qty }}</p>
                     <p style="text-align: justify;"><strong>Details:</strong> {{ $productDetails->product_detail_long }} </p>
                 </div>
             </div>
