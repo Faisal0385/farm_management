@@ -17,8 +17,6 @@
                     </div>
                     @endif
 
-
-
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Add Dairy Product Details</h5>
@@ -56,13 +54,13 @@
                                     <div class="col-lg-3">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Stock Unit</label>
-                                            <input type="text" name="stock_qty" class="form-control">
+                                            <input type="number" name="stock_qty" min="0" value="0" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Stock Alert</label>
-                                            <input type="text" name="stock_alert" class="form-control">
+                                            <input type="number" name="stock_alert" min="0" value="0" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -71,19 +69,19 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Cost Price</label>
-                                            <input type="text" name="cost_price" class="form-control">
+                                            <input type="number" name="cost_price" min="0" value="0" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Sale Price</label>
-                                            <input type="text" name="sale_price" class="form-control">
+                                            <input type="number" name="sale_price" min="0" value="0" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Discount Price</label>
-                                            <input type="text" name="discount_price" class="form-control">
+                                            <input type="number" name="discount_price" min="0" value="0" class="form-control">
                                         </div>
                                     </div>
                                 </div>

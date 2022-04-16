@@ -49,7 +49,7 @@
                             <!-- @php($i = 1) -->
                             @foreach($productDetails as $productDetail)
                             <tr>
-                                <th scope="row">{{ $productDetails->firstItem() + $loop->index }}</th>
+                                <th scope="row">#</th>
                                 <td>{{ $productDetail->product_id }}</td>
                                 <td>{{ $productDetail->product_name }}</td>
                                 <td>{{ $productDetail->weight }}</td>
@@ -121,7 +121,6 @@
                         </tbody>
                     </table>
 
-                    {{ $productDetails->links() }}
                 </div>
             </div>
         </div>

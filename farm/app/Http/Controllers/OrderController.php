@@ -30,6 +30,7 @@ class OrderController extends Controller
             $cartCheck = DB::table('carts')
                 ->where('user_id', '=', session()->get('user_id'))->count();
 
+
             // if got anything
             if ($cartCheck > 0) {
 
@@ -78,7 +79,7 @@ class OrderController extends Controller
                     DB::table('registers')
                         ->where('user_id', session()->get('user_id'))
                         ->update(['user_status' => $points]);
-                   
+
                     // #####################################################################################
                     $cartDetails = DB::table('carts')
                         ->where('user_id', '=', session()->get('user_id'))->get();
@@ -91,18 +92,18 @@ class OrderController extends Controller
 
                         $product_details = DB::table('product_details')
                             ->where('product_id', $cartDetails[$i]->product_id)->get();
-                        
+
                         if($onumber > $product_details[0]->stock_qty ){
                             return Redirect()->back()->with('warning', 'Order Qty can not be more than '.$product_details[0]->stock_qty.'');
                         }else{
                             $uty = ($product_details[0]->stock_qty - $onumber);
                             $product_id = $cartDetails[$i]->product_id;
-                            
+
                             DB::table('product_details')
                                 ->where('product_id', $product_id)
                                 ->update(['stock_qty' => $uty]);
                         }
-                        
+
                     }
 
                     // delete items from cart

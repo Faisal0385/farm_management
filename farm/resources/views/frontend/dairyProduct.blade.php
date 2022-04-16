@@ -33,17 +33,21 @@
                 <div class="card-body">
                     <h5 class="card-title" style="height: 50px;">{{ $productDetail->product_name }} - {{ $productDetail->product_id }}</h5>
 
-                    @if($productDetail->discount_price != 'NA')
-                    <p class="card-text"><strong>Price</strong> - <del>{{ $productDetail->sale_price }} TK </del></p>
-                    @else
+              
+
+                    @if(empty($productDetail->discount_price))
                     <p class="card-text"><strong>Price</strong> - {{ $productDetail->sale_price }} TK</p>
+                    <strong class="text-danger">{{ (empty($productDetail->stock_qty)) ? 'Out of Stock' : '' }}</strong>
+                    @else
+                    <p class="card-text"><strong>Price</strong> - <del>{{ $productDetail->sale_price }} TK </del></p>
+                    <p class="card-text"><strong>Discount Price</strong> - {{ $productDetail->discount_price }} TK</p>
                     @endif
 
-                    <p class="card-text"><strong>Discount Price</strong> - {{ $productDetail->discount_price }} TK</p>
+                    
                     <hr>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <a href="{{ route('product.details', ['id' => $productDetail->id ])}}" class="btn btn-sm btn-danger">Details</a>
-                        <a href="{{ route('cart.save', ['id' => $productDetail->id ])}}" class="btn btn-sm btn-primary">Add To Cart</a>
+                        <a href="{{ route('cart.save', ['id' => $productDetail->id ])}}" class="btn btn-sm btn-primary {{ (empty($productDetail->stock_qty)) ? 'disabled' : '' }}">Add To Cart</a>
                     </div>
                 </div>
             </div>

@@ -55,6 +55,7 @@
                 <div class="col-lg-12">
                     <h2>{{ $productDetails->product_name }} - {{ $productDetails->product_id }}</h2>
                     <a href="{{ route('cart.save', ['id' => $productDetails->id ])}}" class="btn btn-sm btn-danger {{ !empty($productDetails->stock_qty) ? '' : 'disabled' }}" >Add To Cart</a> 
+                    <strong class="text-danger">{{ (empty($productDetails->stock_qty)) ? 'In Stock within 3 days.' : '' }}</strong>
                 </div>
                 <div class="col-lg-12 pt-3 pb-3">
                     <p style="text-align: justify;"><strong>Short Description:</strong> {{ $productDetails->product_detail_short }} </p>

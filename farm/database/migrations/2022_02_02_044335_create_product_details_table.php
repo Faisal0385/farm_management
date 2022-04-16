@@ -24,6 +24,8 @@ class CreateProductDetailsTable extends Migration
             $table->string('cost_price');
             $table->string('sale_price');
             $table->string('discount_price')->nullable();
+            $table->string('stock_qty')->nullable();
+            $table->string('stock_alert')->nullable();
             $table->string('category_id');
             $table->string('subcategory_id');
             

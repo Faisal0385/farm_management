@@ -21,6 +21,8 @@ class CreateOrdersTable extends Migration
             $table->string('user_number');
             $table->string('user_email');
             $table->string('pyt_method');
+            $table->string('pty_number');
+            $table->string('trdx');
             $table->string('address');
             $table->string('street');
             $table->string('city');

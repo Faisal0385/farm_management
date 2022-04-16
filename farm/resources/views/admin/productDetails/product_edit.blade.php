@@ -17,8 +17,6 @@
                     </div>
                     @endif
 
-
-
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Edit Cow's Details</h5>
@@ -41,16 +39,28 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Weight/Liter</label>
                                             <input type="text" value="{{ $productDetails->weight }}" name="weight" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Size</label>
                                             <input type="text" value="{{ $productDetails->size }}" name="size" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Stock Unit</label>
+                                            <input type="number" value="{{ $productDetails->stock_qty }}" name="stock_qty" min="0" value="0" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Stock Alert</label>
+                                            <input type="number" value="{{ $productDetails->stock_alert }}" name="stock_alert" min="0" value="0" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -59,19 +69,19 @@
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Cost Price</label>
-                                            <input type="text" value="{{ $productDetails->cost_price }}" name="cost_price" class="form-control">
+                                            <input type="number" value="{{ $productDetails->cost_price }}" name="cost_price" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Sale Price</label>
-                                            <input type="text" value="{{ $productDetails->sale_price }}" name="sale_price" class="form-control">
+                                            <input type="number" value="{{ $productDetails->sale_price }}" name="sale_price" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <label for="" class="form-label">Discount Price</label>
-                                            <input type="text" value="{{ $productDetails->discount_price }}" name="discount_price" class="form-control">
+                                            <input type="number" value="{{ $productDetails->discount_price }}" name="discount_price" class="form-control">
                                         </div>
                                     </div>
                                 </div>

@@ -36,7 +36,7 @@ class ProductDetailsController extends Controller
     // Admin
     public function AllProduct()
     {
-        $productDetails = ProductDetails::latest()->paginate(5);
+        $productDetails = ProductDetails::all();
         $categories = Category::all();
         $subcategories = SubCategory::all();
         return view('admin.productdetails.product_show', compact('productDetails', 'categories', 'subcategories'));
@@ -183,6 +183,8 @@ class ProductDetailsController extends Controller
         $cost_price           = $request->cost_price;
         $sale_price           = $request->sale_price;
         $discount_price       = $request->discount_price;
+        $stock_qty            = $request->stock_qty;
+        $stock_alert          = $request->stock_alert;
         $category_id          = $request->category_id;
         $subcategory_id       = $request->subcategory_id;
         $product_detail_short = $request->product_detail_short;
@@ -199,6 +201,8 @@ class ProductDetailsController extends Controller
                 'cost_price'           => $cost_price,
                 'sale_price'           => $sale_price,
                 'discount_price'       => $discount_price,
+                'stock_qty'            => $stock_qty,
+                'stock_alert'          => $stock_alert,
                 'subcategory_id'       => $subcategory_id,
                 'product_detail_short' => $product_detail_short,
                 'product_detail_long'  => $product_detail_long,

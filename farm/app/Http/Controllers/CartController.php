@@ -56,7 +56,7 @@ class CartController extends Controller
                     $product_img = $productDetails->product_img_1;
                 }
 
-                if ($productDetails->discount_price == 'NA' || $productDetails->discount_price == 'na') {
+                if (empty($productDetails->discount_price)) {
                     $product_price = $productDetails->sale_price;
                 } else {
                     $product_price = $productDetails->discount_price;

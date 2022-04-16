@@ -196,10 +196,10 @@ use App\Models\Vaccine;
                         Customer Inquiries
                     </x-jet-nav-link>
                     <x-jet-nav-link class="{{ (request()->is('expanse/all')) ? 'active' : '' }}" href="{{ route('expanse.all') }}">
-                        Expanse Type
+                        Expense Type
                     </x-jet-nav-link>
                     <x-jet-nav-link class="{{ (request()->is('expanse/details/all')) ? 'active' : '' }}" href="{{ route('expanseDetails.all') }}">
-                        Expanse Details
+                        Expense Details
                     </x-jet-nav-link>
                     <x-jet-nav-link class="{{ (request()->is('coupon/details/all')) ? 'active' : '' }}" href="{{ route('coupon.all') }}">
                         Coupon Generate
