@@ -94,6 +94,7 @@ Route::post('/order/store', [OrderController::class, 'orderStore'])->name('order
 
 // BACKEND
 #########################################################################################################################
+#########################################################################################################################
 // Category Controller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');
 Route::get('/category/edit/{id}', [CategoryController::class, 'EditCat'])->name('category.edit');

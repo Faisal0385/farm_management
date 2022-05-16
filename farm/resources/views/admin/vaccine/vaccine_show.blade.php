@@ -64,12 +64,23 @@
                                     <input type="date" name="vaccine_date" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="" class="form-label">Cow ID</label>
-                                    <select name="cow_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option readonly value="">Pls Select Cow ID</option>
+                                    <label for="" class="form-label">Cow Dairy ID</label>
+                                    <select name="cow_dairy_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option readonly value="">Pls Select Dairy Cow ID</option>
 
                                         @foreach($dairyDetails as $dairyDetail)
                                         <option value="{{$dairyDetail->product_id}}">{{$dairyDetail->product_id}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Cow Agro ID</label>
+                                    <select name="cow_agro_id" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option readonly value="">Pls Select Agro Cow ID</option>
+
+                                        @foreach($agroDetails as $agroDetail)
+                                        <option value="{{$agroDetail->product_id}}">{{$agroDetail->product_id}}</option>
                                         @endforeach
 
                                     </select>

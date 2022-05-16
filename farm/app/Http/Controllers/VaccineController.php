@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AgroDetails;
 use App\Models\DairyDetail;
 use App\Models\Vaccine;
 use App\Models\VaccineName;
@@ -16,9 +17,12 @@ class VaccineController extends Controller
     public function AllVaccine()
     {
         $productDetails = Vaccine::latest()->paginate(5);
-        $dairyDetails   = DairyDetail::all();
         $VaccineNames   = VaccineName::all();
-        return view('admin.vaccine.vaccine_show', compact('productDetails', 'dairyDetails', 'VaccineNames'));
+
+        $dairyDetails  = DairyDetail::get('product_id');
+        $agroDetails   = AgroDetails::get('product_id');
+
+        return view('admin.vaccine.vaccine_show', compact('productDetails', 'dairyDetails', 'agroDetails', 'VaccineNames',));
     }
 
     public function ReminderVaccine()
@@ -26,7 +30,7 @@ class VaccineController extends Controller
         $ldate = date('Y-m-d');
         $getReminders = Vaccine::where('vaccine_notification', $ldate)->where('status', null)->latest()->paginate(5);
         $getdata      = Vaccine::where('status', 1)->latest()->paginate(5);
-        return view('admin.vaccine.vaccine_reminder', compact('getReminders','getdata'));
+        return view('admin.vaccine.vaccine_reminder', compact('getReminders', 'getdata'));
     }
 
     public function StoreVaccine(Request $request)
@@ -49,8 +53,16 @@ class VaccineController extends Controller
 
 
         $productDetails = new Vaccine;
-        $productDetails->vaccine_date         = $request->vaccine_date;
-        $productDetails->cow_id               = $request->cow_id;
+        $productDetails->vaccine_date  = $request->vaccine_date;
+
+        if (!empty($request->cow_agro_id) && empty($request->cow_dairy_id)) {
+            $productDetails->cow_id = $request->cow_agro_id;
+        } else if (empty($request->cow_agro_id) && !empty($request->cow_dairy_id)) {
+            $productDetails->cow_id = $request->cow_dairy_id;
+        }else{
+            return Redirect()->back()->with('success', 'Need to choose one cow ID.');
+        }
+
         $productDetails->vaccine              = $request->vaccine_id;
         $productDetails->vaccine_notification = $request->vaccine_notification;
         $productDetails->user_id = Auth::user()->id;
@@ -99,7 +111,7 @@ class VaccineController extends Controller
         DB::table('vaccines')
             ->where('id', $id)
             ->update([
-                'status'=> 1
+                'status' => 1
             ]);
 
         return Redirect()->route('vaccine.reminder')->with('success', 'Vaccine Is Given Successfully.');
