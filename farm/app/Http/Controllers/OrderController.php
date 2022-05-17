@@ -67,12 +67,12 @@ class OrderController extends Controller
                     $points = (int) $customer[0]->user_status;
 
                     // check the total price
-                    if ($total_price >= 1000 && $total_price <= 3000) {
+                    if ($total_price >= 100 && $total_price <= 300) {
+                        $points = (int) $customer[0]->user_status + 10;
+                    } elseif ($total_price >= 301 && $total_price <= 500) {
                         $points = (int) $customer[0]->user_status + 100;
-                    } elseif ($total_price >= 3001 && $total_price <= 5000) {
-                        $points = (int) $customer[0]->user_status + 1000;
-                    } elseif ($total_price > 10000) {
-                        $points = (int) $customer[0]->user_status + 5000;
+                    } elseif ($total_price > 1000) {
+                        $points = (int) $customer[0]->user_status + 500;
                     }
 
                     // update the points of the users
