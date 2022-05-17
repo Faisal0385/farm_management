@@ -133,9 +133,12 @@ Route::get('/product/all', [ProductDetailsController::class, 'AllProduct'])->nam
 Route::get('/product/add', [ProductDetailsController::class, 'AllAdd'])->name('product.add');
 Route::get('/product/edit/{id}', [ProductDetailsController::class, 'EditProduct'])->name('product.edit');
 Route::get('/product/delete/{id}', [ProductDetailsController::class, 'DeleteProduct'])->name('product.delete');
+Route::get('/product/reminder', [ProductDetailsController::class, 'productReminder'])->name('product.reminder');
 
 Route::post('/product/store', [ProductDetailsController::class, 'StoreProduct'])->name('product.store');
 Route::post('/product/update/{id}', [ProductDetailsController::class, 'UpdateProduct'])->name('product.update');
+Route::post('/product/reminder', [ProductDetailsController::class, 'productReminderUpdate'])->name('product.reminder.update');
+
 
 ## Frontend Product
 Route::get('/dairyProduct', [ProductDetailsController::class, 'ProductAll'])->name('dairyProduct');

@@ -26,8 +26,8 @@
                     <input type="email" class="form-control" name="user_email" placeholder="Your Email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password"  class="form-control" name="user_pass" placeholder="Your Password" required>
-                    
+                    <input type="password" class="form-control" name="user_pass" placeholder="Your Password" required>
+
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-danger btn-sm">Login</button>
@@ -60,7 +60,8 @@
                     <input type="email" class="form-control" name="user_email" placeholder="Your Email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="user_phone" placeholder="Phone Number" required>
+                    <input type="number" class="form-control" name="user_phone" onkeyup="validatePhoneNumber(this.value)" placeholder="Phone Number" required>
+                    <b><span class="p-2" id="validate_phone"></span></b>
                 </div>
                 <div class="mb-3">
                     <input type="password" class="form-control" id="txtPassword" onkeyup="CheckPasswordStrength(this.value)" name="user_pass" placeholder="Password" required>
@@ -75,7 +76,7 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-danger btn-sm">Register</button>
+                    <button disabled id="btn_submit" type="submit" class="btn btn-danger btn-sm">Register</button>
                 </div>
             </form>
         </div>
@@ -87,6 +88,7 @@
 <script type="text/javascript">
     function CheckPasswordStrength(password) {
         var password_strength = document.getElementById("password_strength");
+        var btn_submit = document.getElementById("btn_submit");
 
         //TextBox left blank.
         if (password.length == 0) {
@@ -140,6 +142,35 @@
         }
         password_strength.innerHTML = strength;
         password_strength.style.color = color;
+
+        function checkStrength() {
+            if (strength == "Good" || strength == "Strong" || strength == "Very Strong") {
+                btn_submit.removeAttribute('disabled');
+            }
+
+            if (strength == "Weak") {
+                btn_submit.setAttribute('disabled', 'disabled');
+            }
+        }
+
+        // call
+        checkStrength()
+    }
+
+    function validatePhoneNumber(input_str) {
+        // var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+        var re = /^(?:\+88|88)?(01[3-9]\d{8})$/;
+
+        // return re.test(input_str);
+        var validate_phone = document.getElementById("validate_phone");
+
+        if(!re.test(input_str)){
+            validate_phone.innerHTML = "Pls Put Only Number.";
+        }
+
+        if(re.test(input_str)){
+            validate_phone.innerHTML = "";
+        }
     }
 </script>
 

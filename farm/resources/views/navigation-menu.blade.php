@@ -1,5 +1,6 @@
 @php
 use App\Models\Vaccine;
+use App\Models\ProductDetails;
 @endphp
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
@@ -35,6 +36,18 @@ use App\Models\Vaccine;
                     </x-jet-nav-link>
                     <x-jet-nav-link class="{{ (request()->is('product/all')) ? 'active' : '' }}" href="{{ route('product.all') }}">
                         Dairy Product Details
+                    </x-jet-nav-link>
+                    <x-jet-nav-link class="{{ (request()->is('/product/reminder')) ? 'active' : '' }}" href="{{ route('product.reminder') }}">
+                        <div class="position-relative">
+                            Product Reminder
+                            @php
+                            $reminderCount = ProductDetails::whereRaw('stock_qty <= stock_alert')->count();
+                                @endphp
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ $reminderCount }}
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                        </div>
                     </x-jet-nav-link>
                     <x-jet-nav-link class="{{ (request()->is('production/all')) ? 'active' : '' }}" href="{{ route('production.all') }}">
                         Daily Milk Productions

@@ -53,16 +53,8 @@ class VaccineController extends Controller
 
 
         $productDetails = new Vaccine;
-        $productDetails->vaccine_date  = $request->vaccine_date;
-
-        if (!empty($request->cow_agro_id) && empty($request->cow_dairy_id)) {
-            $productDetails->cow_id = $request->cow_agro_id;
-        } else if (empty($request->cow_agro_id) && !empty($request->cow_dairy_id)) {
-            $productDetails->cow_id = $request->cow_dairy_id;
-        }else{
-            return Redirect()->back()->with('success', 'Need to choose one cow ID.');
-        }
-
+        $productDetails->vaccine_date         = $request->vaccine_date;
+        $productDetails->cow_id               = $request->cow_id;
         $productDetails->vaccine              = $request->vaccine_id;
         $productDetails->vaccine_notification = $request->vaccine_notification;
         $productDetails->user_id = Auth::user()->id;

@@ -36,6 +36,11 @@ class RegisterController extends Controller
         //     ]
         // );
 
+        // $re = "/^(?:\+88|88)?(01[3-9]\d{8})$/";
+        // $number = (int)$request->user_phone;
+
+        // dd(preg_match($number, $re));
+
         $checkEmail = Register::where('user_email', $request->user_email)->count();
 
         if ($checkEmail > 0) {

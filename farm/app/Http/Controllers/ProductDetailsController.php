@@ -37,8 +37,8 @@ class ProductDetailsController extends Controller
     public function AllProduct()
     {
         $productDetails = ProductDetails::all();
-        $categories = Category::all();
-        $subcategories = SubCategory::all();
+        $categories     = Category::all();
+        $subcategories  = SubCategory::all();
         return view('admin.productdetails.product_show', compact('productDetails', 'categories', 'subcategories'));
     }
 
@@ -221,5 +221,32 @@ class ProductDetailsController extends Controller
         DB::table('product_details')->where('id', '=', $id)->delete();
 
         return Redirect()->route('product.all')->with('success', 'Product Deleted Successfully.');
+    }
+
+    public function productReminder()
+    {
+        # code...
+        $productDetails = productDetails::all();
+
+        $categories = Category::all();
+        $subcategories = SubCategory::all();
+        return view('admin.productdetails.product_reminder', compact('productDetails', 'categories', 'subcategories'));
+    }
+
+    public function productReminderUpdate(Request $request)
+    {
+        # code...
+        $product_id           = $request->p_id;
+        $stock_qty            = $request->p_amount;
+
+        DB::table('product_details')
+            ->where('product_id', $product_id)
+            ->update([
+                'stock_qty'  => $stock_qty,
+                'user_id'    => Auth::user()->id,
+                'updated_at' => Carbon::now()
+            ]);
+
+        return Redirect()->back()->with('success', 'Product Amount Updated Successfully.');
     }
 }
