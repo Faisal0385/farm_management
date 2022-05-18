@@ -28,7 +28,7 @@ class VaccineController extends Controller
     public function ReminderVaccine()
     {
         $ldate = date('Y-m-d');
-        $getReminders = Vaccine::where('vaccine_notification', $ldate)->where('status', null)->latest()->paginate(5);
+        $getReminders = Vaccine::where('vaccine_notification', $ldate)->where('status', 0)->latest()->paginate(5);
         $getdata      = Vaccine::where('status', 1)->latest()->paginate(5);
         return view('admin.vaccine.vaccine_reminder', compact('getReminders', 'getdata'));
     }

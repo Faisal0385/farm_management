@@ -41,10 +41,18 @@ use App\Models\ProductDetails;
                         <div class="position-relative">
                             Product Reminder
                             @php
-                            $reminderCount = ProductDetails::whereRaw('stock_qty <= stock_alert')->count();
+                            $products = ProductDetails::all();
+
+                            $a=array();
+
+                            foreach($products as $product){
+                            if($product->stock_qty <= $product->stock_alert){
+                                array_push($a,$product->id);
+
+                                }}
                                 @endphp
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    {{ $reminderCount }}
+                                    {{ count($a); }}
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                         </div>
@@ -64,7 +72,7 @@ use App\Models\ProductDetails;
                             Vaccine Reminder
                             @php
                             $ldate = date('Y-m-d');
-                            $reminderCount = vaccine::where('vaccine_notification', $ldate)->where('status', null)->count();
+                            $reminderCount = vaccine::where('vaccine_notification', $ldate)->where('status', 0)->count();
                             @endphp
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 {{ $reminderCount }}
