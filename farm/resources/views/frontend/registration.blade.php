@@ -87,6 +87,7 @@
 
 <script type="text/javascript">
     function CheckPasswordStrength(password) {
+
         var password_strength = document.getElementById("password_strength");
         var btn_submit = document.getElementById("btn_submit");
 
@@ -96,79 +97,85 @@
             return;
         }
 
-        //Regular Expressions.
-        var regex = new Array();
-        regex.push("[A-Z]"); //Uppercase Alphabet.
-        regex.push("[a-z]"); //Lowercase Alphabet.
-        regex.push("[0-9]"); //Digit.
-        regex.push("[$@$!%*#?&]"); //Special Character.
 
-        var passed = 0;
+        if (password.length > 8) {
+            //Regular Expressions.
+            var regex = new Array();
+            regex.push("[A-Z]"); //Uppercase Alphabet.
+            regex.push("[a-z]"); //Lowercase Alphabet.
+            regex.push("[0-9]"); //Digit.
+            regex.push("[$@$!%*#?&]"); //Special Character.
 
-        //Validate for each Regular Expression.
-        for (var i = 0; i < regex.length; i++) {
-            if (new RegExp(regex[i]).test(password)) {
+            var passed = 0;
+
+            //Validate for each Regular Expression.
+            for (var i = 0; i < regex.length; i++) {
+                if (new RegExp(regex[i]).test(password)) {
+                    passed++;
+                }
+            }
+
+            //Validate for length of Password.
+            if (passed > 2 && password.length > 8) {
                 passed++;
             }
-        }
 
-        //Validate for length of Password.
-        if (passed > 2 && password.length > 8) {
-            passed++;
-        }
+            //Display status.
+            var color = "";
+            var strength = "";
+            switch (passed) {
+                case 0:
+                case 1:
+                    strength = "Weak";
+                    color = "red";
+                    break;
+                case 2:
+                    strength = "Good";
+                    color = "darkorange";
+                    break;
+                case 3:
+                case 4:
+                    strength = "Strong";
+                    color = "green";
+                    break;
+                case 5:
+                    strength = "Very Strong";
+                    color = "darkgreen";
+                    break;
+            }
+            password_strength.innerHTML = strength;
+            password_strength.style.color = color;
 
-        //Display status.
-        var color = "";
-        var strength = "";
-        switch (passed) {
-            case 0:
-            case 1:
-                strength = "Weak";
-                color = "red";
-                break;
-            case 2:
-                strength = "Good";
-                color = "darkorange";
-                break;
-            case 3:
-            case 4:
-                strength = "Strong";
-                color = "green";
-                break;
-            case 5:
-                strength = "Very Strong";
-                color = "darkgreen";
-                break;
-        }
-        password_strength.innerHTML = strength;
-        password_strength.style.color = color;
+            function checkStrength() {
+                if (strength == "Good" || strength == "Strong" || strength == "Very Strong") {
+                    btn_submit.removeAttribute('disabled');
+                }
 
-        function checkStrength() {
-            if (strength == "Good" || strength == "Strong" || strength == "Very Strong") {
-                btn_submit.removeAttribute('disabled');
+                if (strength == "Weak") {
+                    btn_submit.setAttribute('disabled', 'disabled');
+                }
             }
 
-            if (strength == "Weak") {
-                btn_submit.setAttribute('disabled', 'disabled');
-            }
+            // call
+            checkStrength()
         }
 
-        // call
-        checkStrength()
+
     }
 
     function validatePhoneNumber(input_str) {
+
         // var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
         var re = /^(?:\+88|88)?(01[3-9]\d{8})$/;
 
         // return re.test(input_str);
         var validate_phone = document.getElementById("validate_phone");
 
-        if(!re.test(input_str)){
+        if (!re.test(input_str)) {
             validate_phone.innerHTML = "Pls Put Only Number.";
         }
 
-        if(re.test(input_str)){
+        if (re.test(input_str)) {
             validate_phone.innerHTML = "";
         }
     }
