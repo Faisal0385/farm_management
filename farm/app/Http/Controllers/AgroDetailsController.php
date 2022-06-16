@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AgroDetails;
+use App\Models\Whatsapp;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +26,10 @@ class AgroDetailsController extends Controller
     {
         # code...        
         $agroDetails = AgroDetails::find($id);
+        
+        $Whatsapp = Whatsapp::first();
 
-        return view('frontend.agoraProductDetails', compact('agroDetails'));
+        return view('frontend.agoraProductDetails', compact('agroDetails', 'Whatsapp'));
     }
 
 

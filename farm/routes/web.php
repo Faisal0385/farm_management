@@ -21,6 +21,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\VaccineName;
 use App\Http\Controllers\VaccineNameController;
+use App\Http\Controllers\WhatsappController;
 use App\Models\AgroDetails;
 use App\Models\Inquiry;
 use App\Models\ProductDetails;
@@ -95,6 +96,15 @@ Route::post('/order/store', [OrderController::class, 'orderStore'])->name('order
 // BACKEND
 #########################################################################################################################
 #########################################################################################################################
+
+// whatsapp Controller
+Route::get('/whatsapp/all', [WhatsappController::class, 'AllCat'])->name('whatsapp.all');
+Route::get('/whatsapp/delete/{id}', [WhatsappController::class, 'DeleteCat'])->name('whatsapp.delete');
+
+Route::post('/whatsapp/store', [WhatsappController::class, 'StoreCat'])->name('whatsapp.store');
+
+
+
 // Category Controller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');
 Route::get('/category/edit/{id}', [CategoryController::class, 'EditCat'])->name('category.edit');

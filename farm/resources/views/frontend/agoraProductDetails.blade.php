@@ -48,7 +48,7 @@
                     <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#agroDetail_{{$agroDetails->id}}">Send Enquiry</button>
                 </div>
                 <div class="col-lg-12" style="width: 100px; height:100px;">
-                    <a href="https://api.whatsapp.com/send?phone=+8801306260913" target="blank">
+                    <a href="https://web.whatsapp.com/send?phone={{ empty($Whatsapp->number) ? '' : $Whatsapp->number }}" target="blank">
                         <img class="img-thumbnail mt-2" src="{{ asset('frontend/assets/images/whatsapp.png') }}" width="60px" height="60px">
                     </a>
                 </div>

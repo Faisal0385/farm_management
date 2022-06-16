@@ -228,6 +228,11 @@ use App\Models\ProductDetails;
                     <x-jet-nav-link class="{{ (request()->is('order/all')) ? 'active' : '' }}" href="{{ route('order.all') }}">
                         Orders
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link class="{{ (request()->is('whatsapp/all')) ? 'active' : '' }}" href="{{ route('whatsapp.all') }}">
+                        Whatsapp Settings
+                    </x-jet-nav-link>
+                    
                     <x-jet-nav-link class="{{ (request()->is('report/all')) ? 'active' : '' }}" href="{{ route('report.all') }}">
                         Report
                     </x-jet-nav-link>
